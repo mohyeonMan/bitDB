@@ -3,14 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+p {
+	border: 1px solid blue;
+}
+</style>
 </head>
 <body>
 	<!-- 이미지 태그의 기본사용 방법 -->
-	<div>
-		<img src="http://localhost:8080/html/img/cww.jpg" alt="이미지설명 - 치와와"/> <br>
-	</div>
-	<div>
-		<img src="../img/dd.png" width="200" height="200" alt="놀란 똥"/>
-	</div>
+	<p style="border: 1px solid red;">
+		<img src="http://localhost:8080/html/img/cww.jpg" alt="이미지설명 - 치와와" />
+		<br>
+	</p>
+	<p>
+		<img src="../img/dd.png" width="200" height="200" alt="놀란 똥" />
+	</p> <!-- div와 같은데 한줄 띄어나옴. -->
+	<p>
+		<a href="http://www.naver.com"><img src="src/main/webapp/img/naver.jfif"></a>
+	</p>
 </body>
 </html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>exam08</title>
+</head>
+<body>
+	<form action="result.html"> <!-- 데이터를 들고 페이지로 이동. -->
+		<fieldset>
+		<legend>이름 입력하기</legend>
+			<div>
+				<label for="user_name">이름 : </label>
+				<input type="text" name="user_name" id="user_name"/>
+			</div>
+			<br>
+			<div>
+				<input type="submit" value="입력완료"/>
+				<!-- submit하면 form안에 있는 데이터를 들고 action으로 이동. -->
+				<input type="reset" value="초기화"/>
+				<input type="button" value ="입력완료" onclick="javascript:location.href='result.html'"/> 
+				<!-- button은 누를수 있으나 데이터를 들고갈수 없다. 자바스크립트로 이동은 할수있다.-->
+				<input type="image" src="../img/ok.png" alt="확인"/>
+				<!-- 자동으로 submit -->
+				<input type="image" src="../img/ok.png" alt="확인" onclick="return false;"/>
+				<!-- submit되지 않는다. -->
+				
+			</div>
+		</fieldset>
+	</form>
+</body>
+</html>
