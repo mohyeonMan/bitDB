@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+div{
+	color:red;
+	font-size:8pt;
+	font-weight:bold;
+}
+</style>
+</head>
+<body>
+	<form name="paramForm" method="get" action="http://localhost:8080/testServlet/ParamServlet"> <!-- submit -> action -->
+		<!-- 자바에서의 메소드를 말하는것이 아니다. -->
+		<table border="1" cellpadding="5" cellspacing="0">
+			<tr>
+				<td width="80" align="center">이름</td>
+				<td>
+					<input type="text" name="name" id="name">
+					<div id="nameDiv"></div>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">나이</td>
+				<td>
+					<input type="text" name="age" id="age" size=5>
+					<div id="ageDiv"></div>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="button" value="보내기"
+					onclick="javascript:check()"> <input type="reset"
+					value="취소"></td>
+			</tr>
+		</table>
+	</form>
+</body>
+
+<script type="text/javascript">
+	function check() {
+		//	if(document.paranForm.name.value==null) alert("이름을 입력하세요");//세미콜론 안찍어도된다.
+		//	else if(document.paranForm.age.value==null) alert("나이를 입력하세요");
+
+		//	if (document.getElementById("name").value == "")
+		//	alert("이름을 입력하세요"); // id 속성을 활용할수도 있다.
+		//	else if (document.getElementById("age").value == "")
+		//	alert("나이를 입력하세요");
+		
+		document.getElementById("nameDiv").innerText=""; //초기화
+		document.getElementById("ageDiv").innerText="";
+		if(document.getElementById("name").value=="")
+			document.getElementById("nameDiv").innerText="이름을 입력하세요";
+		if(document.getElementById("age").value=="")
+			document.getElementById("ageDiv").innerText="나이를 입력하세요";
+		
+		else document.paramForm.submit();
+	}
+</script>
+
+</html>
