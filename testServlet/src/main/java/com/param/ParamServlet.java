@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@WebServlet("/ParamServlet") // xml에 기록하는 대신 어노테이션으로 처리할 수 있다.. 한번에 확인하긴 좋지않다.
 public class ParamServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

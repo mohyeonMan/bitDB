@@ -11,14 +11,14 @@
   <url-pattern>/hello</url-pattern> 
   </servlet-mapping>
 
-	<servlet>
+	<!-- <servlet>
   	<servlet-name>ParamServlet</servlet-name>	
   	<servlet-class>com.param.ParamServlet</servlet-class> 
   </servlet>
   <servlet-mapping>
   <servlet-name>ParamServlet</servlet-name>
   <url-pattern>/ParamServlet</url-pattern> 
-  </servlet-mapping>
+  </servlet-mapping> -->
   
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
