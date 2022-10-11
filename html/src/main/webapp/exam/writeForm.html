@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h3>회원가입</h3>
+
+<table border="1" width="500" >
+	<tr>
+		<td align = "center" width=100>이름</td>
+		<td align = "left"><input type="text" name="name" id="name" placeholder="이름 입력"></td>
+	</tr>
+	<tr>
+		<td align = "center" >아이디</td>
+		<td align = "left"><input type="text" name="id" id="id" placeholder="아이디 입력"></td>
+	</tr>
+	<tr>
+		<td align = "center" >비밀번호</td>
+		<td align = "left"><input type="password" name="pwd" id="pwd"></td>
+	</tr>
+	<tr>
+		<td align = "center" >재확인</td>
+		<td align = "left"><input type="password" name="pwd" id="pwd"></td>
+	</tr>
+	<tr>
+		<td align = "center" >성별</td>
+		<td align = "left">
+			<input type="radio" name="user_gender" id="male" value="1">
+			<label for="male">남</label>
+			<input type="radio" name="user_gender" id="female" value="2">
+			<label for="female">여</label>	</td>
+	</tr>
+	<tr>
+		<td align = "center" >이메일</td>
+		<td align = "left"><input type="text" name="email" id="email" style="width:100px">@
+		<select name="email2" id="email2" placeholder="도메인 선택">
+		<option value=""></option>
+		<option value="1">naver.com</option>
+		<option value="2">gmail.com</option>
+		<option value="3">yahoo.co.kr</option>
+		</select>
+		<input type="text" name="email3" id="email3" placeholder="직접 입력"  style="width:120px">
+		</td>
+	</tr>
+	<tr>
+		<td align = "center" >핸드폰</td>
+		<td align = "left">
+		<select name="tel1" id="tel1" style="width:80px">
+		<option value="">010</option>
+		<option value="1">011</option>
+		<option value="2">019</option>
+		<option value="3">00700</option>
+		</select>
+		<input type="text" name="tel2" id="tel2" style="width:80px">
+		<input type="text" name="tel3" id="tel3" style="width:80px">
+		</td>
+	</tr>
+	<tr>
+		<td align= "center" height="70">주소</td>
+		<td align= "left">
+		<input type="text" disabled="disabled" name="zipcode" id="zipcode" > <button>우편번호검색</button><br>
+		<input type="text" disabled="disabled" name="addr1" id="addr1" style="width:350px" placeholder="주소" ><br>
+		<input type="text" name="addr2" id="addr2 "style="width:350px" placeholder="상세주소">
+		</td>
+	
+
+</table>
+
+
+</body>
+</html>
