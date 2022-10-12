@@ -1,4 +1,4 @@
-function checkpost() {
+function checkPost() {
 			new daum.Postcode(
 					{
 						oncomplete : function(data) {
