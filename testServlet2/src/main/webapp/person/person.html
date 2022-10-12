@@ -3,58 +3,74 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+div {
+	color: red;
+	font-size: 0.5em;
+}
+</style>
 </head>
 <body>
-	<form name="personForm" method="get" action="">
-		<table border = "1" width="450" cellpadding="5" cellspacing="0">
+	<form name="personForm" method="get"
+		action="http://localhost:8080/testServlet2/PersonServlet">
+		<table border="1" width="450" cellpadding="5" cellspacing="0">
 			<tr>
-				<td width="120" align ="center">이름</td>
-				<td><input type="text" name="name" placeholder="이름 입력"></td>
+				<td width="70" align="center">이름</td>
+				<td><input type="text" name="name" id=name placeholder="이름 입력">
+					<div id="nameDiv"></div></td>
 			</tr>
 			<tr>
-				<td height ="40" align="center">성별</td>
-				<td><div">
-				<input type=radio name="gender" value="0" checked>남
-				<input type=radio name="gender" value="1">여</div>
-				</td>
+				<td height="40" align="center">성별</td>
+				<td><fieldset>
+						<input type=radio name="gender" value="0" checked>남 <input
+							type=radio name="gender" value="1">여 </div>
+					</fieldset></td>
 			</tr>
 			<tr>
 				<td align="center">색깔</td>
-				<td><select name=color  style="width:100px;" >
-				<option value="" style="font:strong">색깔</option>
-				<option value="red">빨강</option>
-				<option value="green">초록</option>
-				<option value="blue">파랑</option>
-				<option value="magenta">보라</option>
-				<option value="cyan">하늘</option>
-				</select></td>
-			</tr>	
-			<tr>
-				<td align="center" height ="30">취미</td>
-				<td>
-				<input type="checkbox" name = "hobby">독서
-				<input type="checkbox" name = "hobby">영화
-				<input type="checkbox" name = "hobby">음악
-				<input type="checkbox" name = "hobby">게임
-				<input type="checkbox" name = "hobby">쇼핑
-				</td>
-			</tr>
-			<tr>
-				<td align = "center">과목</td>
-				<td>
-				<select multiple size="5" style="width:150px;">
-				<option>JAVA</option>
-				<option>Servlet</option>
-				<option>JSP</option>
-				<option>SPRING</option>
+				<td><select name="color" id="color" style="width: 100px;">
+						<optgroup label="색깔">
+							<option value="red">빨강</option>
+							<option value="green">초록</option>
+							<option value="blue">파랑</option>
+							<option value="magenta">보라</option>
+							<option value="cyan">하늘</option>
+						</optgroup>
 				</select></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="center">
-				<input type="button" value="SEND" onclick="javascript:check()"> 
-				<input type="reset" value="CANCEL">
-				
+				<td align="center" height="30">취미</td>
+				<td><input type="checkbox" name="hobby" value="독서">독서 <input
+					type="checkbox" name="hobby" value="영화">영화 <input
+					type="checkbox" name="hobby" value="음악">음악 <input
+					type="checkbox" name="hobby" value="게임">게임 <input
+					type="checkbox" name="hobby" value="쇼핑">쇼핑</td>
+			</tr>
+			<tr>
+				<td align="center">과목</td>
+				<td><select multiple size="5" style="width: 150px;"
+					name=subject>
+						<option value="java" selected>JAVA</option>
+						<option value="servlet">Servlet</option>
+						<option value="jsp">JSP</option>
+						<option value="spring">SPRING</option>
+				</select></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><input type="button"
+					value="SEND" onclick="check()"> <input type="reset"
+					value="CANCEL"> <!--  button태그를 쓰면 자동으로 submit. -->
 		</table>
 	</form>
+	<script type="text/javascript">
+		function check() {
+			if (document.getElementById("name").value == "")
+				document.getElementById("nameDiv").innerText = "이름를 입력하세요";
+
+			else
+				document.personForm.submit();
+
+		}
+	</script>
 </body>
 </html>
