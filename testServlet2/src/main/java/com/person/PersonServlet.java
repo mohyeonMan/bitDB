@@ -31,18 +31,19 @@ public class PersonServlet extends HttpServlet {
 		//2. 응답.
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out= response.getWriter();
-		out.println("<html>");
-		out.println("<head>");
-		out.println("<style>");
-		out.println("li{color:"+color+"}");
-		out.println("</style>");
-		out.println("</head>");
-		out.println("<body>");
-		out.println("<ul>");
-		out.println("<li>이름 : "+name+"</li><br>");
-		out.println("<li>성별 : "+gender+"</li><br>");
-		out.println("<li>색깔 : "+color+"</li><br>");
-		out.println("<li>취미 : ");
+
+		out.println("<html>\n"
+				+ "<head>\n"
+				+ "<style>\n"
+				+ "li{color:"+color+"}\n"
+				+ "</style>\n"
+				+ "</head>\n"
+				+ "<body>\n"
+				+ "<ul>\n"
+				+ "<li>이름 : "+name+"</li><br>\n"
+				+ "<li>성별 : "+gender+"</li><br>\n"
+				+ "<li>색깔 : "+color+"</li><br>\n"
+				+ "<li>취미 : \n");
 		for (int i = 0; i < hobby.length; i++) {
 			out.println(hobby[i]);
 		}
@@ -51,10 +52,11 @@ public class PersonServlet extends HttpServlet {
 		for (int i = 0; i < subject.length; i++) {
 			out.println(subject[i]);
 		}
-		out.println("</li><br>");
-		out.println("</ul>");
-		out.println("</body>");
-		out.println("</html>");
+
+		out.println("</li><br>\n"
+				+ "</ul>\n"
+				+ "</body>\n"
+				+ "</html>\n");
 	}
 
 }

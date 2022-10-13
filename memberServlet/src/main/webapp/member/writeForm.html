@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>writeForm</title>
 <style type="text/css">
 div {
 	color: red;
@@ -13,7 +13,7 @@ div {
 </head>
 <body>
 	<h2>회원가입</h2>
-	<form name="writeForm" method="post" action="">
+	<form name="writeForm" method="post" action="/memberServlet/WriteServlet"><!-- html에서 url은 받아왔으므로 context/url링크만 써주면 된다. -->
 		<table border="1" cellpadding="5" cellspacing="0">
 			<tr>
 				<th>이름</th>
@@ -43,7 +43,7 @@ div {
 			<tr>
 				<th>성별</th>
 				<td>
-					<input type="radio" name="gender" id="gender_m" value="0" />
+					<input type="radio" name="gender" id="gender_m" value="0" checked/>
 					<label for="gender_m">남자</label>			
 					<input type="radio" name="gender" id="gender_f" value="1" />
 					<label for="gender_f">여자</label>	
@@ -67,9 +67,9 @@ div {
 				<th>휴대폰</th>
 				<td>
 					<select name="tel1" id="tel1" style="width: 60px;">
-						<option>010</option>
-						<option value="num">011</option>
-						<option value="num">019</option>
+						<option value="010">010</option>
+						<option value="011">011</option>
+						<option value="019">019</option>
 					</select>
 					-
 					<input type="tel" name="tel2" id="tel2" style="width: 50px;">
@@ -80,7 +80,7 @@ div {
 			<tr>
 				<th>주소</th>
 				<td>
-					<input type="text" id="zipcode" readonly/>
+					<input type="text" name="zipcode" id="zipcode" readonly/>
 					<input type="button" value="우편번호검색" onclick="checkPost()"><br>
 					<input type="text" name="addr1" id="addr1" style="width: 400px;" placeholder="주소" readonly/><br>
 					<input type="text" name="addr2" id="addr2" style="width: 400px;" placeholder="상세주소">
@@ -88,8 +88,8 @@ div {
 			</tr>
 			<tr>
 				<th colspan="2">
-					<button type="button" onclick="checkWrite()">회원가입</button>
-					<button type="reset">다시작성</button>
+					<input type="button" onclick="checkWrite()" value="회원가입">
+					<input type="reset" value="다시작성">
 				</th>
 			</tr>	
 		</table>
