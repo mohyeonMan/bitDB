@@ -32,7 +32,7 @@ div {
 			<tr>
 				<th colspan="2">
 					<input type="button" onclick="checkLogin()" value="로그인">
-					<input type="button"  onclick="location.href='http://localhost:8080/memberServlet/member/writeForm.html'"  value="회원가입">
+					<input type="button" onclick="location.href='/memberServlet/member/writeForm.html'" value="회원가입"><!-- http://도메인:포트번호/context name/folder/file.html -->
 				</th>
 			</tr>
 		</table>
@@ -41,11 +41,14 @@ div {
 	function checkLogin(){ //작성했는지 확인
 		document.getElementById("idDiv").innerText = "";
 		document.getElementById("pwdDiv").innerText="";
-		if(document.getElementById("id").value == "")
+		if(document.getElementById("id").value == ""){
 			document.getElementById("idDiv").innerText="아이디를 입력하세요";
-		
-		else if(document.getElementById("pwd").value == "")
+			document.loginForm.id.focus();
+		}
+		else if(document.getElementById("pwd").value == ""){
 			document.getElementById("pwdDiv").innerText="비밀번호를 입력하세요";
+			document.loginForm.pwd.focus();
+		}
 		else
 			document.loginForm.submit();
 	}

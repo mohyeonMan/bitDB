@@ -17,16 +17,11 @@ import member.dao.MemberDAO;
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("UTF-8");
 		String id=request.getParameter("id");
 		String pwd=request.getParameter("pwd");
 		
-		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setId(id);
-		memberDTO.setPwd(pwd);
-		
-		MemberDAO memberDAO = MemberDAO.getInstance();
-		String name = memberDAO.memberLogin(memberDTO);
+		MemberDAO memberDAO = MemberDAO.getInstance(); //싱글톤 활용.
+		String name = memberDAO.memberLogin(id,pwd);
 		
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();

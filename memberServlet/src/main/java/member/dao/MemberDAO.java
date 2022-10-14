@@ -21,6 +21,7 @@ public class MemberDAO {
 	// 한번 만들어둔 메모리를 재활용하기 위해 스태틱으로 생성
 	private static MemberDAO memberDAO = new MemberDAO();
 
+	// 만들어 둔 싱글톤 인스턴스를 불러오는 메소드.
 	public static MemberDAO getInstance() {
 		return memberDAO;
 	}
@@ -76,21 +77,20 @@ public class MemberDAO {
 		return su;
 	}
 
-	public String memberLogin(MemberDTO memberDTO) {
+	public String memberLogin(String id, String pwd) {
 		String name = null;
 		String sql = "select name from member where id=? and pwd=?";
 		getConnection();
 
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, memberDTO.getId());
-			pstmt.setString(2, memberDTO.getPwd());
+			pstmt.setString(1, id);
+			pstmt.setString(2, pwd);
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
 				name = rs.getString("name");
 			}
-
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
