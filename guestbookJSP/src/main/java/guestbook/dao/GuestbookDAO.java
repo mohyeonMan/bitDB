@@ -66,7 +66,8 @@ public class GuestbookDAO {
 		}
 		return done;
 	}
-	public void guestbookList(ResultSet rs) {
+	public ResultSet guestbookList() {
+		ResultSet rs=null;
 		String sql= "select*from guestbook order by 1 desc";
 		getConnection();
 		
@@ -87,6 +88,6 @@ public class GuestbookDAO {
 				e.printStackTrace();
 			}
 		}
-
+		return rs;
 	}
 }

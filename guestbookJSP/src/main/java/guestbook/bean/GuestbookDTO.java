@@ -1,11 +1,13 @@
 package guestbook.bean;
 
 public class GuestbookDTO {
-private	String 	name,
+private int seq;
+private	String	name,
 				email,
 				homepage,
 				subject,
-				content;
+				content,
+				date;
 public GuestbookDTO(String name, String email, String homepage, String subject, String content) {
 	this.name = name;
 	this.email = email;

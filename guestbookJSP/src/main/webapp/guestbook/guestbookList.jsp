@@ -5,9 +5,11 @@
     pageEncoding="UTF-8"%>
 
 <%
+
 GuestbookDAO guestbookDAO = GuestbookDAO.getInstance();
-ResultSet rs=null;
-guestbookDAO.guestbookList(rs);
+ResultSet rs = guestbookDAO.guestbookList();
+
+
 %>
 
 <!DOCTYPE html>
