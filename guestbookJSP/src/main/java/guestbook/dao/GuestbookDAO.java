@@ -12,7 +12,7 @@ import guestbook.bean.GuestbookDTO;
 public class GuestbookDAO {
 	private Connection conn;
 	private PreparedStatement pstmt;
-	private ResultSet rs;
+	
 
 	private String driver = "oracle.jdbc.driver.OracleDriver";
 	private String url = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -66,8 +66,8 @@ public class GuestbookDAO {
 		}
 		return done;
 	}
-	public void guestbookList() {
-		String sql= "select*from guestbook order by 1";
+	public void guestbookList(ResultSet rs) {
+		String sql= "select*from guestbook order by 1 desc";
 		getConnection();
 		
 		try {

@@ -20,12 +20,12 @@ div{
 	<tr>
 		<th width=100px;>작성자</th>
 		<td><input type="text" size="30em" name="name" placeholder="작성자 입력">
-		<div id="nameDiv"></div></td>
+		</td>
 	</tr>
 	<tr>
 		<th>이메일</th>
 		<td><input type="text" size="40em" name="email" placeholder="이메일 입력">
-		<div id="emailDiv"></div></td>
+		</td>
 	</tr>
 	<tr>
 		<th>홈페이지</th>
@@ -33,11 +33,13 @@ div{
 	</tr>
 	<tr>
 		<th>제목</th>
-		<td><input type="text" size="70em" name="subject" placeholder="제목입력"></td>
+		<td><input type="text" size="70em" name="subject" placeholder="제목입력">
+		<div id="subjectDiv"></div></td>
 	</tr>
 	<tr>
 		<th>내용</th>
-		<td><textarea rows="1" cols="5" style="width: 100%; height: 200px;" name="content" placeholder="내용입력"></textarea></td>
+		<td><div id="contentDiv"></div>
+		<textarea rows="1" cols="5" style="width: 100%; height: 200px;" name="content" placeholder="내용입력"></textarea></td>
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
@@ -50,16 +52,16 @@ div{
 </form>
 <script type="text/javascript">
 function checkGuestbookWrite(){
-	document.getElementById("nameDiv").innerText ="";
-	document.getElementById("emailDiv").innerText ="";
+	document.getElementById("subjectDiv").innerText ="";
+	document.getElementById("contentDiv").innerText ="";
 	
-	if(document.guestbookWriteForm.name.value ==""){
-		document.getElementById("nameDiv").innerText ="작성자 이름을 입력해주세요.";
-		document.guestbookWriteForm.name.focus();
+	if(document.guestbookWriteForm.subject.value ==""){
+		document.getElementById("subjectDiv").innerText ="제목을 입력해주세요.";
+		document.guestbookWriteForm.subject.focus();
 	} 
-	else if(document.guestbookWriteForm.email.value ==""){
-		document.getElementById("emailDiv").innerText ="이메일을 입력해주세요.";
-			document.guestbookWriteForm.email.focus();
+	else if(document.guestbookWriteForm.content.value ==""){
+		document.getElementById("contentDiv").innerText ="내용을 입력해주세요.";
+			document.guestbookWriteForm.content.focus();
 	}
 	else document.guestbookWriteForm.submit();
 }

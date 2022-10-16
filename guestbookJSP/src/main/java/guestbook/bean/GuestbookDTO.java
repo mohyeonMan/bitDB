@@ -7,7 +7,6 @@ private	String 	name,
 				subject,
 				content;
 public GuestbookDTO(String name, String email, String homepage, String subject, String content) {
-	super();
 	this.name = name;
 	this.email = email;
 	this.homepage = homepage;
