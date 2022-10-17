@@ -1,10 +1,12 @@
 package guestbook.dao;
 
+import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import guestbook.bean.GuestbookDTO;
 
@@ -66,14 +68,25 @@ public class GuestbookDAO {
 		}
 		return done;
 	}
-	public ResultSet guestbookList() {
-		ResultSet rs=null;
-		String sql= "select*from guestbook order by 1 desc";
+
+	public void guestbookList(ArrayList<GuestbookDTO> list) {
+		ResultSet rs = null;
+		String sql = "select seq,name,email,homepage,subject,content,to_char(logtime,'YYYY-MM-DD') from guestbook order by 1 desc";
 		getConnection();
-		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			rs=pstmt.executeQuery();
+			rs = pstmt.executeQuery();
+			while (rs.next()) {
+				GuestbookDTO guestbookDTO = new GuestbookDTO(
+						rs.getInt("seq"),
+						rs.getString("name"),
+						rs.getString("email"),
+						rs.getString("homepage"),
+						rs.getString("subject"),
+						rs.getString("content"),
+						rs.getString("to_char(logtime,'YYYY-MM-DD')"));
+				list.add(guestbookDTO);				
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}finally { 
@@ -88,6 +101,5 @@ public class GuestbookDAO {
 				e.printStackTrace();
 			}
 		}
-		return rs;
 	}
 }

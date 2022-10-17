@@ -7,13 +7,24 @@ private	String	name,
 				homepage,
 				subject,
 				content,
-				date;
+				logtime;
 public GuestbookDTO(String name, String email, String homepage, String subject, String content) {
 	this.name = name;
 	this.email = email;
 	this.homepage = homepage;
 	this.subject = subject;
 	this.content = content;
+}
+
+public GuestbookDTO(int seq, String name, String email, String homepage, String subject, String content, String date) {
+	super();
+	this.seq = seq;
+	this.name = name;
+	this.email = email;
+	this.homepage = homepage;
+	this.subject = subject;
+	this.content = content;
+	this.logtime = date;
 }
 
 public String getName() {
@@ -54,6 +65,22 @@ public String getContent() {
 
 public void setContent(String content) {
 	this.content = content;
+}
+
+public int getSeq() {
+	return seq;
+}
+
+public void setSeq(int seq) {
+	this.seq = seq;
+}
+
+public String getLogtime() {
+	return logtime;
+}
+
+public void setLogtime(String date) {
+	this.logtime = date;
 }
 
 
