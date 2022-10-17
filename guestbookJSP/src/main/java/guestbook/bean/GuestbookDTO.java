@@ -17,7 +17,6 @@ public GuestbookDTO(String name, String email, String homepage, String subject, 
 }
 
 public GuestbookDTO(int seq, String name, String email, String homepage, String subject, String content, String date) {
-	super();
 	this.seq = seq;
 	this.name = name;
 	this.email = email;

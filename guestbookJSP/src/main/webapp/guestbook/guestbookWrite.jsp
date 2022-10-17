@@ -30,12 +30,16 @@ body {
 </style>
 </head>
 <body>
+<img src="../img/jjang.png" width="100" height= "100" 
+	onclick="location.href='guestbookWriteForm.jsp'" 
+	style="cursor: pointer"><br>
 <% if(done==1){%>
 방명록 작성에 <strong>성공</strong>했습니다.<br>
-<input type="button" value="방명록으로" onclick="location.href='guestbookList.jsp'">
+<input type="button" value="방명록으로" onclick="location.href='guestbookList.jsp?pg=1'">
+<input type="button" value="새로 쓰기" onclick="history.back">
 <%} else {%> 
 방명록 작성에 <strong>실패</strong>하였습니다.<br>
-<input type="button" value="이전으로" onclick="location.href='guestbookWriteForm.jsp'">
+<input type="button" value="이전으로" onclick="history.go(-1)">
 <%} %>
 </body>
 </html>

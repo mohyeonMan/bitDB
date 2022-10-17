@@ -6,3 +6,5 @@ homepage varchar2(35),
 subject varchar2(500) not null,
 content varchar2(4000) not null,
 logtime date);
+
+create sequence seq_guestbook nocycle nocache;

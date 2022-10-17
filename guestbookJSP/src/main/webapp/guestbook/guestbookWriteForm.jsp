@@ -39,13 +39,13 @@ div{
 	<tr>
 		<th>내용</th>
 		<td><div id="contentDiv"></div>
-		<textarea rows="1" cols="5" style="width: 100%; height: 200px;" name="content" placeholder="내용입력"></textarea></td>
+		<textarea rows="1" cols="5" style="width: 100%; height: 200px;" name="content" placeholder="내용입력" ></textarea></td>
 	</tr>
 	<tr>
 		<td colspan="2" align="center">
 		<input type="button" onclick="checkGuestbookWrite()" value="글작성">
 		<input type="reset" value="다시 작성">
-		<input type="button" onclick="location.href='guestbookList.jsp'" value="글목록">
+		<input type="button" onclick="location.href='guestbookList.jsp?pg=1'" value="글목록">
 		</td>
 	</tr>
 </table>
