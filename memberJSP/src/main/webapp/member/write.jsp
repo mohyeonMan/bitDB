@@ -45,10 +45,20 @@ int su = memberDAO.memberWrite(memberDTO);
 <title>Insert title here</title>
 </head>
 <body>
-<%if(su==1){%>
+<%--
 	회원가입 성공
 <%}else{%>
 	회원가입 실패
-<%} %>
+<%} %> 
+--%>
+
+<script type="text/javascript">
+	if(su==1){
+		window.onload = function(){ // 창이 열림과 동시에 메소드실행.
+		alert("회원가입 성공");
+		location.href='loginForm.jsp';
+	}
+}
+</script>
 </body>
 </html>

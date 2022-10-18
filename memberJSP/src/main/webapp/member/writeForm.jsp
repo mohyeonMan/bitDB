@@ -28,6 +28,8 @@ div {
 				<th>아이디</th>
 				<td>
 					<input type="text" name="id" id="id" size="30" placeholder="아이디 입력">
+					<input type="button" value="중복체크" onclick="checkId()"> 
+					<!-- 무결성 에러를 방지하기위한 중복체크 -->
 					<div id="idDiv"></div>
 				</td>
 			</tr>
@@ -96,31 +98,7 @@ div {
 			</tr>	
 		</table>
 	</form>
-<script type="text/javascript">
-function change(){
-	document.writeForm.email2.value = document.writeForm.email3.value;
-}
-
-function checkWrite(){
-	document.getElementById("nameDiv").innerText = "";
-	document.getElementById("idDiv").innerText = "";
-	document.getElementById("pwdDiv").innerText="";
-	
-	if(document.getElementById("name").value == "")
-		document.getElementById("nameDiv").innerText="이름을 입력하세요";
-	
-	else if(document.getElementById("id").value == "")
-		document.getElementById("idDiv").innerText="아이디를 입력하세요";
-	
-	else if(document.getElementById("pwd").value == "")
-		document.getElementById("pwdDiv").innerText="비밀번호를 입력하세요";
-	
-	else if(document.getElementById("pwd").value != document.getElementById("repwd").value)
-		document.getElementById("pwdDiv").innerText="비밀번호가 맞지 않습니다.";
-	else
-		document.writeForm.submit();
-}
-</script>
+<script type="text/javascript" src="../js/member.js"></script>
 	
 <!-- 우편번호 -->
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
