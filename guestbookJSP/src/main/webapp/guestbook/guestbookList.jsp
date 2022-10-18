@@ -78,6 +78,7 @@ if (list!=null){%>
 		</tr>
 	</table>
 <%}%> 
+<br>
 
 <!-- 페이지번호 -->
 <%for(int i=1;i<=totalPage;i++){%>
@@ -91,8 +92,6 @@ if (list!=null){%>
 <%} else {%>
 <h2>방명록을 불러오는데 실패했습니다.</h2>
 <%} %>
-<br>
-
 
 
 </body>

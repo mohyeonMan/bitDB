@@ -45,6 +45,7 @@ public class MemberDAO {
 	public int memberWrite(MemberDTO memberDTO) {
 		int su = 0;
 		String sql = "insert into member values(?,?,?,?,?,?,?,?,?,?,?,?,sysdate)";
+		
 		getConnection();
 
 		try {

@@ -27,8 +27,9 @@ div {
 			<tr>
 				<th>아이디</th>
 				<td>
-					<input type="text" name="id" id="id" size="30" placeholder="아이디 입력">
+					<input type="text" name="id" id="id" size="30" placeholder="아이디 입력" onkeypress="changed()">
 					<input type="button" value="중복체크" onclick="checkId()"> 
+					<input type="hidden" name="idDup" id="idDup" value="unchecked">
 					<!-- 무결성 에러를 방지하기위한 중복체크 -->
 					<div id="idDiv"></div>
 				</td>
