@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="userSql">
+ 	<insert id="write" parameterType="user.bean.UserDTO"><!-- 풀쿼리네임 써주세요. -->
+ 	insert into usertable values(#{name},#{id},#{pwd}) <!-- #{} ?와 똑같은 방법. 변수명과 같은 이름의 컬럼으로 알아서 들어간다.-->
+ 	</insert>
+</mapper>

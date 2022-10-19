@@ -52,17 +52,21 @@ int su = memberDAO.memberWrite(memberDTO);
 <%} %> 
 --%>
 
-<script type="text/javascript">
-	if(su==1){
+<%if(su==1){%>
+	<script type="text/javascript">
 		window.onload = function(){ // 창이 열림과 동시에 메소드실행.
-		alert("회원가입 성공");
-		location.href='loginForm.jsp';
-	}else{
+			alert("회원가입 성공");
+			location.href='loginForm.jsp';
+		}
+	</script>
+<%}else{%>
+	<script type="text/javascript">
 		window.onload = function(){ // 창이 열림과 동시에 메소드실행.
 			alert("회원가입 실패");
 			location.href='loginForm.jsp';
-	}
-}
-</script>
+		}
+	</script>
+<%}%>
+
 </body>
 </html>
