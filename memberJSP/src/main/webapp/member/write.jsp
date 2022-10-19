@@ -57,6 +57,10 @@ int su = memberDAO.memberWrite(memberDTO);
 		window.onload = function(){ // 창이 열림과 동시에 메소드실행.
 		alert("회원가입 성공");
 		location.href='loginForm.jsp';
+	}else{
+		window.onload = function(){ // 창이 열림과 동시에 메소드실행.
+			alert("회원가입 실패");
+			location.href='loginForm.jsp';
 	}
 }
 </script>
