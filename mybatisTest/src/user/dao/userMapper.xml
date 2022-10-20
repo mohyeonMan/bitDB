@@ -24,13 +24,14 @@
  	delete from usertable where id=#{id} and name=#{name} and pwd=#{pwd}
  	</delete>
  	
- 	<select id="search" parameterType="String" resultType="user" > <!-- parameter, return 꼼꼼히 확인할것.... -->
+ 	<select id="search" parameterType="java.util.map" resultType="user" > <!-- parameter, return 꼼꼼히 확인할것.... -->
  	select * from usertable where 
- 	<if bind
- 	
- 	
- 	name= '%'||#{name}||'%'
+ 	<if test='keyword.equals("name")'>
+ 	(name like '%'||#{name}||'%')
+ 	</if>
+ 	<if test='keyword.equals("id")'>
+ 	(id like '%'||#{id}||'%')
+ 	</if>
  	</select>
- 	
  	
 </mapper>

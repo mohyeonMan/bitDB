@@ -1,6 +1,8 @@
 package user.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 
 import user.bean.UserDTO;
@@ -13,7 +15,6 @@ public class UserSearchService implements UserService{
 		Scanner scan = new Scanner(System.in);
 		int num;
 		UserDAO userDAO = UserDAO.getInstance();
-		String from;
 			System.out.print("***************\n"
 							+ "1. 이름으로 검색\n"
 							+ "2. 아이디로 검색\n"
@@ -22,25 +23,29 @@ public class UserSearchService implements UserService{
 			num=scan.nextInt();
 			
 			List<UserDTO> list=null;
-			
+			Map<String, String> map = new HashMap<String,String>();
+
 			if(num==1) {
 				System.out.println("찾고자 하는 이름 입력 : ");
 				String name=scan.next();
-				list =userDAO.search(name);
-					
+				map.put("name", name);
+				
 			}
 			else if (num==2) {
-				from="id";
 				System.out.println("찾고자 하는 아이디 입력 : ");
 				String id =scan.next();
-				list =userDAO.search(id);
+				map.put("id", id);
 			}
+			
+			list = userDAO.search(map);
 			
 			for(UserDTO userDTO : list) {
 				System.out.println(	userDTO.getName()+"\t"
 								+	userDTO.getId()+"\t"
 								+	userDTO.getPwd()+"\t");
 			}
+			
+			System.out.println("\n검색을 완료하였습니다.");
 	}
 
 }
