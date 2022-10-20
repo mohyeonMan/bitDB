@@ -22,7 +22,7 @@ public class UserInsertService implements UserService {
 		//DB
 		UserDAO userDAO= UserDAO.getInstance();
 		userDAO.write(userDTO);
-		System.out.println("성공!");
+		System.out.println("\n성공!");
 		
 		
 	}
