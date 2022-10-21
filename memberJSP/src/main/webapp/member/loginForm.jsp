@@ -41,7 +41,7 @@ div {
 	</form>
 	<script type="text/javascript">
 	function checkLogin(){ //작성했는지 확인
-		document.getElementById("idDiv").innerText = "";
+		document.getElementById("idDiv").innerText = " ";
 		document.getElementById("pwdDiv").innerText="";
 		if(document.getElementById("id").value == ""){
 			document.getElementById("idDiv").innerText="아이디를 입력하세요";

@@ -35,7 +35,7 @@ memberDTO.setAddr1(addr1);
 memberDTO.setAddr2(addr2);
 
 MemberDAO memberDAO = MemberDAO.getInstance();
-int su = memberDAO.memberWrite(memberDTO);
+int done= memberDAO.write(memberDTO);
 %>
 
 <!DOCTYPE html>
@@ -52,7 +52,7 @@ int su = memberDAO.memberWrite(memberDTO);
 <%} %> 
 --%>
 
-<%if(su==1){%>
+<%if(done==1){%>
 	<script type="text/javascript">
 		window.onload = function(){ // 창이 열림과 동시에 메소드실행.
 			alert("회원가입 성공");

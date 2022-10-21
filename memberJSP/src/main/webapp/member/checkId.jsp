@@ -3,10 +3,9 @@
 	pageEncoding="UTF-8"%>
 
 <%
-String pass;
 String id = request.getParameter("id");
 MemberDAO memberDAO = MemberDAO.getInstance();
-boolean exist = memberDAO.isExistId(id);
+boolean exist = memberDAO.check(id);
 %>
 
 <!DOCTYPE html>

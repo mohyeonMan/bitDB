@@ -13,32 +13,38 @@ public class UserSearchService implements UserService{
 	@Override
 	public void execute() {
 		Scanner scan = new Scanner(System.in);
-		int num;
-		UserDAO userDAO = UserDAO.getInstance();
 			System.out.print("***************\n"
 							+ "1. 이름으로 검색\n"
 							+ "2. 아이디로 검색\n"
 							+ "***************\n"
 							+ "   번호입력 : ");
-			num=scan.nextInt();
+			int num=scan.nextInt();
 			
-			List<UserDTO> list=null;
-			Map<String, String> map = new HashMap<String,String>();
+			String colName = null;
+			String value = null;
 
 			if(num==1) {
-				System.out.println("찾고자 하는 이름 입력 : ");
-				String name=scan.next();
-				map.put("name", name);
-				
+				System.out.print("찾고자 하는 이름 입력 : ");
+				value=scan.next();
+				colName= "name";
 			}
 			else if (num==2) {
-				System.out.println("찾고자 하는 아이디 입력 : ");
-				String id =scan.next();
-				map.put("id", id);
+				System.out.print("찾고자 하는 아이디 입력 : ");
+				value =scan.next();
+				colName= "id";
 			}
 			
-			list = userDAO.search(map);
+			Map<String, String> map = new HashMap<String,String>();
+			map.put("colName",colName);
+			map.put("value",value);
+
+			UserDAO userDAO = UserDAO.getInstance();
+			List<UserDTO> list = userDAO.search(map);
 			
+			if(list.size()==0) {
+				System.out.println("찾으시는 값이 없습니다.");
+				return;
+			}
 			for(UserDTO userDTO : list) {
 				System.out.println(	userDTO.getName()+"\t"
 								+	userDTO.getId()+"\t"
