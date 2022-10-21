@@ -1,0 +1,78 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Main</title>
+</head>
+<body>
+<h3>Main</h3>
+<hr>
+<h5>
+
+<a href="http://localhost:8080/miniProject_JSP/member/writeForm.jsp">회원가입</a><br>
+<a href="">로그인</a><br>
+<a href="">로그아웃</a><br>
+<a href="http://localhost:8080/miniProject_JSP/board/boardWriteForm.jsp">글쓰기</a><br>
+<a href="">목록</a><br>
+</h5>
+</body>
+</html>
+
+<!-- 
+1.
+
+(if문 사용)
+세션이 존재 
+-로그아웃
+-글쓰기
+-목록
+
+세션이 없을때
+-회원가입
+-로그인
+-목록
+
+2.
+
+세션 등록 - 로그인 성공시
+-memId;
+-memName
+-memEmail => ~~@~~.com
+
+3.
+Folder 	:	board
+file 	: 	boardWriteForm.jsp		--글쓰기 , 제목, 내용 ,버튼으로 글쓰기 ,다시작성. 유효성검사.boardWritecheck()
+			boardWrite.jsp			--작성하신 글을 저장하였습니다. (실패x)
+package	: 	board.dao
+class	:	BoardDAO.java
+			boardMapper.xml	
+package	:	board.bean
+class	:	BoardDTO.java
+
+
+
+
+테이블
+CREATE TABLE board(
+     seq NUMBER NOT NULL,               -- 글번호 (시퀀스 객체 이용)
+     id VARCHAR2(20) NOT NULL,           -- 아이디
+     name VARCHAR2(40) NOT NULL,       -- 이름
+     email VARCHAR2(40),                  -- 이메일
+     subject VARCHAR2(255) NOT NULL,    -- 제목
+     content VARCHAR2(4000) NOT NULL,   -- 내용 
+
+     ref NUMBER NOT NULL,                 -- 그룹번호 (글번호와 똑같은값) 외래키.
+     lev NUMBER DEFAULT 0 NOT NULL,     -- 단계
+     step NUMBER DEFAULT 0 NOT NULL,    -- 글순서
+     pseq NUMBER DEFAULT 0 NOT NULL,    -- 원글번호
+     reply NUMBER DEFAULT 0 NOT NULL,   -- 답변수
+
+     hit NUMBER DEFAULT 0,              -- 조회수
+     logtime DATE DEFAULT SYSDATE
+ );
+
+시퀀스 객체
+CREATE SEQUENCE seq_board  NOCACHE NOCYCLE;
+ -->
