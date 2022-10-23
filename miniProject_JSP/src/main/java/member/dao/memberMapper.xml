@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="memberSQL"><!-- mapper 구분자. -->
+ 	<insert id="write" parameterType="member"><!-- 풀쿼리네임 써주세요. -->
+ 	insert into member values (
+ 		#{name}
+		,#{id}
+		,#{pwd}
+		,#{gender}
+		,#{email1}
+		,#{email2}
+		,#{tel1}
+		,#{tel2}
+		,#{tel3}
+		,#{zipcode}
+		,#{addr1}
+		,#{addr2}
+		,sysdate) 
+ 	</insert>
+ 	
+ 	<select id="login" parameterType="java.util.Map" resultType="member">
+ 	select * from member where id = #{id} and pwd = #{pwd}
+ 	</select>
+ 	
+ 	<select id="check" parameterType="String" resultType="boolean">
+ 	select COUNT(*) from member where id = #{id}
+ 	</select>
+ 	
+ 	
+</mapper>

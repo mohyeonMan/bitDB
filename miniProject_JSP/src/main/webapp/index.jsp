@@ -1,5 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%
+String name = (String)session.getAttribute("memName");
+String id = (String)session.getAttribute("memId");
+String email = (String)session.getAttribute("memEmail");
+%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,10 +18,13 @@
 <hr>
 <h5>
 
+<% if (name==null || id ==null){ %>
 <a href="http://localhost:8080/miniProject_JSP/member/writeForm.jsp">회원가입</a><br>
-<a href="">로그인</a><br>
-<a href="">로그아웃</a><br>
+<a href="http://localhost:8080/miniProject_JSP/member/loginForm.jsp">로그인</a><br>
+<%}else{ %>
+<a href="http://localhost:8080/miniProject_JSP/member/logout.jsp">로그아웃</a><br>
 <a href="http://localhost:8080/miniProject_JSP/board/boardWriteForm.jsp">글쓰기</a><br>
+<%} %>
 <a href="">목록</a><br>
 </h5>
 </body>

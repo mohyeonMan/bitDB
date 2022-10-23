@@ -1,6 +1,5 @@
 <%@page import="guestbook.dao.GuestbookDAO"%>
 <%@page import="guestbook.bean.GuestbookDTO"%>
-<%@page import="javax.security.auth.message.callback.PrivateKeyCallback.Request"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
