@@ -5,8 +5,18 @@
  
 <mapper namespace="boardSQL"><!-- mapper 구분자. -->
  	<insert id="write" parameterType="map"><!-- 풀쿼리네임 써주세요. -->
- 	insert into board values
+ 	insert into board values	(seq_board.nextval,
+ 								#{id},
+ 								#{name},
+ 								#{email},
+ 								#{subject},
+ 								#{content},
+ 								seq_board.nextval,
+ 								default,
+ 								default,
+ 								default,
+ 								default,
+ 								default,
+ 								sysdate)
  	</insert>
- 	
- 	
 </mapper>

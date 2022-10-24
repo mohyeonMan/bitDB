@@ -26,13 +26,8 @@ public class BoardDAO {
 		}
 	}
 	
-	public void write(String id, String name, String email,String subject,String content) {
-		Map<String, String> map= new HashMap<String, String>();
-		map.put("id", id);
-		map.put("name", name);
-		map.put("email", email);
-		map.put("subject", subject);
-		map.put("content", content);
+	public void write(Map<String, String> map) {
+		
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		sqlSession.insert("boardSQL.write",map);
 		sqlSession.commit();

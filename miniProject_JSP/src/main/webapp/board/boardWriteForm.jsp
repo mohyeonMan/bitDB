@@ -9,6 +9,7 @@
 div{
 	color:red;
 	font-size:0.7em;
+	font-weight:bold;
 }
 </style>
 </head>
@@ -16,9 +17,9 @@ div{
 <h2>게시글 작성</h2>
 <hr>
 <form name="boardWriteForm" method="post" action="boardWrite.jsp">
-<table border=1px cellpadding="5" >
+<table border=1px cellpadding="5" cellspacing="0">
 	<tr>
-		<th>제목</th>
+		<th width="70">제목</th>
 		<td><input type="text" size="70em" name="subject"  placeholder="제목입력">
 		<div id="subjectDiv"></div></td>
 	</tr>

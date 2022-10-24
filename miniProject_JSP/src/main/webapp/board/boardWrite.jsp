@@ -1,3 +1,5 @@
+<%@page import="java.util.HashMap"%>
+<%@page import="java.util.Map"%>
 <%@page import="member.bean.MemberDTO"%>
 <%@page import="board.dao.BoardDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -6,15 +8,15 @@
 <%
 request.setCharacterEncoding("UTF-8");
 
-String id = (String)session.getAttribute("memId");
-String name = (String)session.getAttribute("memName");
-String email = (String)session.getAttribute("memEmail");
-String subject = request.getParameter("subject");
-String content = request.getParameter("content");
-
+Map<String, String> map= new HashMap<String, String>();
+map.put("id", (String)session.getAttribute("memId"));
+map.put("name", (String)session.getAttribute("memName"));
+map.put("email", (String)session.getAttribute("memEmail"));
+map.put("subject", request.getParameter("subject"));
+map.put("content", request.getParameter("content"));
 
 BoardDAO boardDAO = BoardDAO.getInstance();
-boardDAO.write(id,name,email,subject,content);
+boardDAO.write(map);
 
 %>
 

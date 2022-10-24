@@ -4,7 +4,6 @@
 <%
 String name = (String)session.getAttribute("memName");
 String id = (String)session.getAttribute("memId");
-String email = (String)session.getAttribute("memEmail");
 %>
 
 <!DOCTYPE html>
@@ -17,7 +16,6 @@ String email = (String)session.getAttribute("memEmail");
 <h3>Main</h3>
 <hr>
 <h5>
-
 <% if (name==null || id ==null){ %>
 <a href="http://localhost:8080/miniProject_JSP/member/writeForm.jsp">회원가입</a><br>
 <a href="http://localhost:8080/miniProject_JSP/member/loginForm.jsp">로그인</a><br>
