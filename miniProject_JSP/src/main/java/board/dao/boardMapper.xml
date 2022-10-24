@@ -19,4 +19,8 @@
  								default,
  								sysdate)
  	</insert>
+ 	<select id="list" parameterType="map" resultType="board">
+ 	select * from(select * from board order by 1 desc) 
+	where seq>=#{startNum} and seq<![CDATA[<=]]>#{endNum}
+ 	</select>
 </mapper>

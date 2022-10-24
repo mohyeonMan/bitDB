@@ -4,6 +4,12 @@
  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
 <mapper namespace="userSQL"><!-- mapper 구분자. -->
+	<!-- UserDTO의 필드와 테이블의 컬럼명이 틀린 경우 
+	<resultMap type="user" id="userResult">
+		<result property="DTO의 필드명" column="테이블의 컬럼명(대문자)"/>
+	</resultMap>-->
+
+
  	<insert id="write" parameterType="user"><!-- 풀쿼리네임 써주세요. -->
  	insert into usertable values(#{name},#{id},#{pwd}) <!-- #{} ?와 똑같은 방법. 변수명과 같은 이름의 컬럼으로 알아서 들어간다.-->
  	</insert>

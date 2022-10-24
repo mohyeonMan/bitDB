@@ -29,10 +29,17 @@ if(name!=null){
 	//세션
 	//HttpSession session = request.getSession();
 	// 서블릿에서 기본적으로 세션을 만들기때문에 Duplicate error
-	session.setAttribute("memName", name); //memName 세션에 name 추가. 30분 유지.
+	//session.setAttribute("memName", name); //memName 세션에 name 추가. 30분 유지.
+	//쿠키생성,//클라이언트에게 보내기
+	Cookie cookie = new Cookie("memName",name);
+	cookie.setMaxAge(30*60);
+	response.addCookie(cookie);
+	
+	Cookie cookie2 = new Cookie("memId",id);
+	cookie2.setMaxAge(30*60);
+	response.addCookie(cookie2);
+	
 	response.sendRedirect("loginOk.jsp"); //세션에 추가되었으므로 데이터를 가져갈 필요가 없다.
-	
-	
 }else{
 	response.sendRedirect("loginFail.jsp");
 } %>

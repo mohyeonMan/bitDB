@@ -4,7 +4,7 @@ import java.util.Date;
 
 import lombok.Data;
 @Data
-public class boardDTO {
+public class BoardDTO {
 	
 	private int seq;
 	private String id;

@@ -2,13 +2,15 @@ package board.dao;
 
 import java.io.IOException;
 import java.io.Reader;
-import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+import board.bean.BoardDTO;
 
 public class BoardDAO {
 	private SqlSessionFactory sqlSessionFactory;
@@ -32,5 +34,12 @@ public class BoardDAO {
 		sqlSession.insert("boardSQL.write",map);
 		sqlSession.commit();
 		sqlSession.close();
+	}
+	public List<BoardDTO> list(Map<String, Integer> map) {
+		List<BoardDTO> list=null;
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		list = sqlSession.selectList("boardSQL.list",map);
+		sqlSession.close();
+		return list;
 	}
 }
