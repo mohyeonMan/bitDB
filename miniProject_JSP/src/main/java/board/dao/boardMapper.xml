@@ -20,7 +20,11 @@
  								sysdate)
  	</insert>
  	<select id="list" parameterType="map" resultType="board">
- 	select * from(select * from board order by 1 desc) 
-	where seq>=#{startNum} and seq<![CDATA[<=]]>#{endNum}
+ 	select * from (select rownum rn, tt.* from(select *from board order by seq desc)tt) 
+ 	where rn >=#{startNum} and rn <![CDATA[<=]]>#{endNum}
+ 								<!-- &lt; , between and 도 가능 -->
+ 	</select>
+ 	<select id="getPgs" resultType="Integer">
+ 	select count(*) from board
  	</select>
 </mapper>

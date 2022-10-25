@@ -1,3 +1,4 @@
+<%@page import="board.bean.BoardPaging"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.List"%>
 <%@page import="board.bean.BoardDTO"%>
@@ -8,6 +9,7 @@
     pageEncoding="UTF-8"%>
 
 <%
+// 한페이지의 게시물 수
 int pg = Integer.parseInt(request.getParameter("pg"));
 int endNum = pg*5;
 int startNum = endNum-4;
@@ -18,9 +20,18 @@ map.put("endNum",endNum);
 
 BoardDAO boardDAO = BoardDAO.getInstance();
 List<BoardDTO> list = boardDAO.list(map);
-SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-int pgs=(list.size()+4)/5;
+//총 페이지수와 한번에 표시되는 페이지 수 
+int totalA=boardDAO.getTotal();
+
+BoardPaging boardPaging = new BoardPaging();
+boardPaging.setCurrentPage(pg);
+boardPaging.setPageBlock(3);
+boardPaging.setPageSize(5);
+boardPaging.setTotalA(totalA);
+
+boardPaging.makePagingHTML();
 %>
 <!DOCTYPE html>
 <html>
@@ -28,50 +39,80 @@ int pgs=(list.size()+4)/5;
 <meta charset="UTF-8">
 <title>boardList</title>
 <style type="text/css">
+
+#pagingDiv{
+	/*border:1px solid red;*/
+	text-align:center;
+	width:950px;
+	margin-top:10px;
+}
 #currentPaging{
-	color:red;
+	border: 1px solid green;
+	padding:7px 10px;
+	margin:10px;
 	text-decoration: underline;
-	font-size:18pt;
+	cursor:pointer;
 }
 #paging{
 	color:black;
 	text-decoration: none;
+	cursor:pointer;
 }
+input{
+	float:left;
+}
+.subjectA:hover{
+	color:green;
+	text-decoration: underline;
+	cursor:pointer;
+}
+
 
 </style>
 </head>
 <body>
 <%if (list!=null){ %>
-<form>
 <h2>게시판</h2>
 <hr>
-	<table border=1px cellpadding="5" cellspacing="0" >
+	<table border=1px cellpadding="5" cellspacing="0" frame="hsides" rules="rows">
 		<tr>
-			<td>글번호</td>
-			<td>제목</td>
-			<td>작성자</td>
-			<td>작성일</td>
-			<td>조회수</td>
+			<th style="width: 100px;">글번호</th>
+			<th style="width: 400px;">제목</th>
+			<th style="width: 100px;">작성자</th>
+			<th style="width: 100px;">조회수</th>
+			<th style="width: 200px;">작성일</th>
 		</tr>
-	</table>
-	<table border=1px cellpadding="5" cellspacing="0">	
 <%for (BoardDTO boardDTO : list){%>
 		<tr>
-			<td><%=boardDTO.getSeq()%></td>
-			<td><%=boardDTO.getSubject()%></td>
+			<td align="center"><%=boardDTO.getSeq()%></td>
+			<td><span class="subjectA" onclick="location.href='boardView.jsp?no=<%=boardDTO.getSeq()%>&pg=<%=pg%>'">
+			<%=boardDTO.getSubject()%></span></td>
 			<td><%=boardDTO.getId()%></td>
-			<td><%=simpleDateFormat.format(boardDTO.getLogtime())%></td>
-			<td><%=boardDTO.getHit()%></td>
+			<td align="center"><%=boardDTO.getHit()%></td>
+			<td><%=sdf.format(boardDTO.getLogtime())%></td>
 		</tr>
 <%}}%>
 </table>
-</form>
-<%for(int i=1;i<=pgs;i++){%>
-<%if(i==pg){ %>
-	<a id="currentPaging" href="boardList.jsp?pg=<%=i%>"><%=i%></a>
+<div id="pagingDiv"><%=boardPaging.getPagingHTML()%></div>
+
+
+<!-- 세션확인 후 로그인 or 글쓰기 -->
+<%
+String name = (String)session.getAttribute("memName");
+String id = (String)session.getAttribute("memId");
+%>
+<% if (name!=null || id !=null){ %>
+<br>
+<input type="button" onclick="location.href='boardWriteForm.jsp'" value="글쓰기">
 <%}else{ %>
-	<a id="paging" href="boardList.jsp?pg=<%=i%>"><%=i%></a>
+<br>
+<input type="button" onclick="location.href='../member/loginForm.jsp'" value="로그인">
 <%} %>
-<%} %>
+<input type="button" onclick="location.href='../index.jsp'" value="메인으로">
 </body>
+<script type="text/javascript">
+function boardPaging(pg){
+	location.href="boardList.jsp?pg="+pg;
+}
+</script>
 </html>

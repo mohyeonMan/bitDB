@@ -42,4 +42,10 @@ public class BoardDAO {
 		sqlSession.close();
 		return list;
 	}
+	public int getTotal() {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		int a= sqlSession.selectOne("boardSQL.getPgs");
+		sqlSession.close();
+		return a;
+	}
 }

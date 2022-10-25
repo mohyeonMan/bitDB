@@ -31,7 +31,7 @@ boardDAO.write(map);
 <script type="text/javascript">
 		window.onload = function(){ // 창이 열림과 동시에 메소드실행.
 			alert("게시글이 작성되었습니다.");
-			location.href='../index.jsp';
+			location.href='boardList.jsp?pg=1';
 		}
 	</script>
 </body>
