@@ -4,7 +4,7 @@
 <%
 String name = (String)session.getAttribute("memName");
 String id = (String)session.getAttribute("memId");
-int no = Integer.parseInt(request.getParameter("no"));
+int seq = Integer.parseInt(request.getParameter("seq"));
 int pg = Integer.parseInt(request.getParameter("pg"));
 %>
 
@@ -15,12 +15,5 @@ int pg = Integer.parseInt(request.getParameter("pg"));
 <title>boardView</title>
 </head>
 <body>
-<%if(name==null||id==null){ %>
-	<script type="text/javascript">
-	alert("로그인해주세요");
-	location.href = '../member/loginForm.jsp';
-	</script>
-<%}else{ %>
-	no=<%=no %> ,pg=<%=pg %>
-<%} %>
+	seq=<%=seq %> , pg=<%=pg %>
 </html>

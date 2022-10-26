@@ -31,6 +31,9 @@ boardPaging.setPageBlock(3);
 boardPaging.setPageSize(5);
 boardPaging.setTotalA(totalA);
 
+String name = (String)session.getAttribute("memName");
+String id = (String)session.getAttribute("memId");
+
 boardPaging.makePagingHTML();
 %>
 <!DOCTYPE html>
@@ -41,10 +44,13 @@ boardPaging.makePagingHTML();
 <style type="text/css">
 
 #pagingDiv{
-	/*border:1px solid red;*/
 	text-align:center;
 	width:950px;
 	margin-top:10px;
+	margin: auto;
+}
+#pagingDiv:after{
+	clear:both;
 }
 #currentPaging{
 	border: 1px solid green;
@@ -66,6 +72,9 @@ input{
 	text-decoration: underline;
 	cursor:pointer;
 }
+.back:hover{
+	background: lightgray;
+}
 
 
 </style>
@@ -83,9 +92,9 @@ input{
 			<th style="width: 200px;">작성일</th>
 		</tr>
 <%for (BoardDTO boardDTO : list){%>
-		<tr>
+		<tr class="back" onclick="isLogin('<%=id %>',<%=boardDTO.getSeq()%>,<%=pg%>)">
 			<td align="center"><%=boardDTO.getSeq()%></td>
-			<td><span class="subjectA" onclick="location.href='boardView.jsp?no=<%=boardDTO.getSeq()%>&pg=<%=pg%>'">
+			<td><span class="subjectA" >
 			<%=boardDTO.getSubject()%></span></td>
 			<td><%=boardDTO.getId()%></td>
 			<td align="center"><%=boardDTO.getHit()%></td>
@@ -96,10 +105,8 @@ input{
 
 
 <!-- 세션확인 후 로그인 or 글쓰기 -->
-<%
-String name = (String)session.getAttribute("memName");
-String id = (String)session.getAttribute("memId");
-%>
+
+
 <% if (name!=null || id !=null){ %>
 <br>
 <input type="button" onclick="location.href='boardWriteForm.jsp'" value="글쓰기" float="left">
@@ -108,11 +115,19 @@ String id = (String)session.getAttribute("memId");
 <input type="button" onclick="location.href='../member/loginForm.jsp'" value="로그인">
 <%} %>
 <input type="button" onclick="location.href='../index.jsp'" value="메인으로">
-<div id="pagingDiv"><%=boardPaging.getPagingHTML()%></div>
+<div id="pagingDiv" ><%=boardPaging.getPagingHTML()%></div>
 </body>
 <script type="text/javascript">
 function boardPaging(pg){
 	location.href="boardList.jsp?pg="+pg;
+}
+function isLogin(id,seq,pg){
+	if(id =='null '){
+		alert("로그인해주세요");
+		location.href = '../member/loginForm.jsp';
+	} else{
+		location.href="boardView.jsp?seq="+seq+"&pg="+pg;
+	}
 }
 </script>
 </html>
