@@ -93,7 +93,6 @@ input{
 		</tr>
 <%}}%>
 </table>
-<div id="pagingDiv"><%=boardPaging.getPagingHTML()%></div>
 
 
 <!-- 세션확인 후 로그인 or 글쓰기 -->
@@ -103,12 +102,13 @@ String id = (String)session.getAttribute("memId");
 %>
 <% if (name!=null || id !=null){ %>
 <br>
-<input type="button" onclick="location.href='boardWriteForm.jsp'" value="글쓰기">
+<input type="button" onclick="location.href='boardWriteForm.jsp'" value="글쓰기" float="left">
 <%}else{ %>
 <br>
 <input type="button" onclick="location.href='../member/loginForm.jsp'" value="로그인">
 <%} %>
 <input type="button" onclick="location.href='../index.jsp'" value="메인으로">
+<div id="pagingDiv"><%=boardPaging.getPagingHTML()%></div>
 </body>
 <script type="text/javascript">
 function boardPaging(pg){
