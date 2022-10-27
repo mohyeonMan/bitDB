@@ -9,6 +9,8 @@
 </head>
 <body>
 <form action="elresult2.jsp">
+<h3>자바클래스의 메소드를 활용</h3>
+
 	<table border="1">
 		<tr>
 			<th width="50" align="center">X</th> 
