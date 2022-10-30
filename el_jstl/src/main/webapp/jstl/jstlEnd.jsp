@@ -29,7 +29,7 @@ list[2]= ${list[2]}<br><br>
 
 <%-- for(PersonDTO personDTO : LIST2) --%>
 <c:forEach var="personDTO" items="${list2 }">
-이름 = ${personDTO.getName() } &emsp; 나이 = ${personDTO.getAge() }<br>
+이름 = ${personDTO.getName()  } &emsp; 나이 = ${personDTO.getAge() }<br>
 이름 = ${personDTO.name } &emsp; 나이 = ${personDTO.age }<br>
 
 </c:forEach>

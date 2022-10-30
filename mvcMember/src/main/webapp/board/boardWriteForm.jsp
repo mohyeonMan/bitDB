@@ -16,7 +16,7 @@ div{
 <body>
 <h2>게시글 작성</h2>
 <hr>
-<form name="boardWriteForm" method="post" action="boardWrite.jsp">
+<form name="boardWriteForm" method="post" action="boardWrite.do">
 <table border=1px cellpadding="5" cellspacing="0">
 	<tr>
 		<th width="70">제목</th>

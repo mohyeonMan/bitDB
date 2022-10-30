@@ -17,13 +17,13 @@ String id = (String)session.getAttribute("memId");
 <hr>
 <h5>
 <% if (name==null || id ==null){ %>
-<a href="mvcMember/member/writeForm.do">회원가입</a><br>
-<a href="mvcMember/member/loginForm.do">로그인</a><br>
+<a href="/mvcMember/member/writeForm.do">회원가입</a><br>
+<a href="/mvcMember/member/loginForm.do">로그인</a><br>
 <%}else{ %>
-<a href="mvcMember/member/logout.do">로그아웃</a><br>
-<a href="mvcMember/board/boardWriteForm.do">글쓰기</a><br>
+<a href="/mvcMember/member/logout.do">로그아웃</a><br>
+<a href="/mvcMember/board/boardWriteForm.do">글쓰기</a><br>
 <%} %>
-<a href="mvcMember/board/boardList.jsp?pg=1">목록</a><br>
+<a href="/mvcMember/board/boardList.jsp?pg=1">목록</a><br>
 </h5>
 </body>
 </html>
