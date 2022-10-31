@@ -7,11 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form method="" action="checkId.do">
-${id} 는 사용 불가능합니다.<br> 
-<input type="text" name="id"> 
+<form action="checkId.do" method="get">
+${requestScope.id}는 사용 불가능
+<br>
+<input type="text" name = "id">
 <input type="submit" value="중복체크">
 </form>
-
 </body>
 </html>

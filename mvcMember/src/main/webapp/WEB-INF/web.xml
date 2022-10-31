@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
   <display-name>mvcMember</display-name>
-  <!-- 
-  <servlet>
-  	<servlet-name>ControlServlet</servlet-name>  alias
+  
+<!--   
+	<servlet>
+  	<servlet-name>ControlServlet</servlet-name>
   	<servlet-class>com.control.ControlServlet</servlet-class>
-  	<init-param> properties 경로 지정
+  	<init-param>
+  		이름은 아무거나 해도된다.
   		<param-name>propertyConfig</param-name>
-  		<param-value>D:/java_ee/workspace/mvcMember/src/main/webapp/WEB-INF/command.properties</param-value> 
+  		<param-value>/Users/leeyongshik/Desktop/JAVA/java_ee/workspace/mvcMember/src/main/webapp/WEB-INF/command.properties</param-value>
   	</init-param>
   </servlet>
   <servlet-mapping>
   	<servlet-name>ControlServlet</servlet-name>
   	<url-pattern>*.do</url-pattern>
-  </servlet-mapping>
-  -->
+  </servlet-mapping> 
+-->
+  
   
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>

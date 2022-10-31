@@ -4,56 +4,68 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>login</title>
+<title>로그인 페이지</title>
 <style type="text/css">
-div {
-	color: red;
-	font-size: 8pt;
-	font-weight: bold;
-}
+	body{
+		margin-left: 200px;
+		margin-top: 100px;
+	}
+	table{
+		border : 1px solid black;
+		border-collapse : collapse;
+	}
+	Div{
+	color : red;
+	font-size : 8pt;
+	font-weight : bold;
+	margin-left:10px;
+	}
 </style>
 </head>
 <body>
-	<form name=loginForm method="post" action="login.do">
-		<h3>로그인</h3> <hr>
-		<table border="1" cellpadding="5" cellspacing="0">
-			<tr>
-				<th>아이디</th>
-				<td>
-					<input type="text" name="id" id="id" size="30" placeholder="아이디 입력">
+	<h1>로그인</h1>
+	<form action="/mvcMember/member/login.do" name="loginForm" id="loginForm" method="post">
+		<table border="1" cellpadding="5">
+			<tr >
+				<td width="100" align="center">아이디</td>
+				<td width="200"> 
+					<input type="text" name="id" id="id" style="width : 150px;"/>
 					<div id="idDiv"></div>
-				</td>
 			</tr>
 			<tr>
-				<th>비밀번호</th>
+				<td align="center">비밀번호</td>
 				<td>
-					<input type="password" name="pwd" id="pwd" size="30">
+					<input type="password" name="pwd" id="pwd" style="width : 200px;"/>
 					<div id="pwdDiv"></div>
 				</td>
 			</tr>
 			<tr>
-				<th colspan="2">
-					<input type="button" onclick="checkLogin()" value="로그인">
-					<input type="button" onclick="location.href='writeForm.do'" value="회원가입"><!-- http://도메인:포트번호/context name/folder/file.html -->
-				</th>
+				<td colspan="2" align="center">
+					<input type="button" value="로그인" onclick="checkLogin()"/>
+					<input type="button" value="회원가입" onClick="location.href='writeForm.do';"/>
+				</td>
 			</tr>
 		</table>
+		
 	</form>
 	<script type="text/javascript">
-	function checkLogin(){ //작성했는지 확인
-		document.getElementById("idDiv").innerText = " ";
+	
+	function checkLogin() {
+		
+	 	document.getElementById("idDiv").innerText="";
 		document.getElementById("pwdDiv").innerText="";
-		if(document.getElementById("id").value == ""){
-			document.getElementById("idDiv").innerText="아이디를 입력하세요";
+		
+		if(document.getElementById("id").value=="") {
+			document.getElementById("idDiv").innerText="아이디를 입력하세요.";
 			document.loginForm.id.focus();
 		}
-		else if(document.getElementById("pwd").value == ""){
-			document.getElementById("pwdDiv").innerText="비밀번호를 입력하세요";
+		else if(document.getElementById("pwd").value=="") {
+			document.getElementById("pwdDiv").innerText="비밀번호를 입력하세요.";
 			document.loginForm.pwd.focus();
 		}
-		else
-			document.loginForm.submit();
+		else document.loginForm.submit();
 	}
+	
 	</script>
 </body>
 </html>

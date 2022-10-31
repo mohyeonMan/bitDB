@@ -12,26 +12,38 @@ public class WriteService implements CommandProcess {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-
-		MemberDTO memberDTO = new MemberDTO();
-
-		memberDTO.setName(request.getParameter("name"));
-		memberDTO.setId(request.getParameter("id"));
-		memberDTO.setPwd(request.getParameter("pwd"));
-		memberDTO.setGender(request.getParameter("gender"));
-		memberDTO.setEmail1(request.getParameter("email1"));
-		memberDTO.setEmail2(request.getParameter("email2"));
-		memberDTO.setTel1(request.getParameter("tel1"));
-		memberDTO.setTel2(request.getParameter("tel2"));
-		memberDTO.setTel3(request.getParameter("tel3"));
-		memberDTO.setZipcode(request.getParameter("zipcode"));
-		memberDTO.setAddr1(request.getParameter("addr1"));
-		memberDTO.setAddr2(request.getParameter("addr2"));
-
-		MemberDAO memberDAO = MemberDAO.getInstance();
-		int done= memberDAO.write(memberDTO);
+		String name = request.getParameter("name");
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
+		String gender = request.getParameter("gender");
+		String tel1 = request.getParameter("tel1");
+		String tel2 = request.getParameter("tel2");
+		String tel3 = request.getParameter("tel3");
+		String email1 = request.getParameter("email1");
+		String email2 = request.getParameter("email2");
+		String zipcode = request.getParameter("zipcode");
+		String addr1 = request.getParameter("addr1");
+		String addr2 = request.getParameter("addr2");
 		
-			return "/member/write.jsp";
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setName(name);
+		memberDTO.setId(id);
+		memberDTO.setPwd(pwd);
+		memberDTO.setGender(gender);
+		memberDTO.setTel1(tel1);
+		memberDTO.setTel2(tel2);
+		memberDTO.setTel3(tel3);
+		memberDTO.setEmail1(email1);
+		memberDTO.setEmail2(email2);
+		memberDTO.setZipcode(zipcode);
+		memberDTO.setAddr1(addr1);
+		memberDTO.setAddr2(addr2);
+		
+		MemberDAO memberDAO = MemberDAO.getInstance();
+		int su = memberDAO.memberWrite(memberDTO);
+		
+		if (su==1) return "/member/writeOk.jsp";
+		else return "/member/writeFail.jsp";
 	}
 
 }
