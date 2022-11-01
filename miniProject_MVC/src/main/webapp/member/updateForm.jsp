@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,7 +11,7 @@
 	border : 1px solid black;
 	border-collapse : collapse;
 	}
-form[name="writeForm"] div{
+form[name="updateForm"] div{
 	color : red;
 	font-size : 8pt;
 	font-weight : bold;
@@ -18,22 +19,21 @@ form[name="writeForm"] div{
 	}
 </style>
 </head>
-<body>
-	<h3>회원가입</h3>
-	<form name="writeForm" id="writeForm">
+<body> 
+	<h3>회원정보 수정</h3>
+	<form name="updateForm" id="updateForm">
 		<table border ="1" width="500" cellpadding="10">
 			<tr>
 				<td width="100" align="center">이름</td>
 				<td>
-					<input type="text" name="name" id="name" placeholder="이름 입력"/>
+					<input type="text" name="name" id="name" value="${member.name }"/>
 					<div id="nameDiv"></div>
 				</td>
 			</tr>
 			<tr>
 				<td width="100" align="center">아이디</td>
 				<td>
-					<input type="text" name="id" id="id" placeholder="아이디 입력" onchange="countReset()"/>
-					<input type="text" name="check" id="check">
+					<input type="text" name="id" id="id" value="${member.id }" readonly/>
 					<div id="idDiv"></div>
 				</td>
 			</tr>
@@ -54,29 +54,41 @@ form[name="writeForm"] div{
 			<tr>
 				<td width="100" align="center">성별</td>
 				<td>
-					<input type="radio" name="gender"  value="0" checked/>남
-					<input type="radio" name="gender"  value="1" />여
+				
+				<c:if test="${member.gender =='1' }">
+				<input type="radio" name="gender"  value="0" />남
+					<input type="radio" name="gender"  value="1" checked/>여
+				</c:if>
 				</td>
 			</tr>
 			<tr>
 				<td width="100" align="center">핸드폰</td>
 				<td>
+				<c:if test="${member.tel1 == '011'}">
+					<select name="tel1">
+					<option value="010">010</option>
+					<option value="011" selected>011</option>
+					<option value="019">019</option>
+					</select>
+				</c:if>
+				<c:if test="${member.tel1 == '019'}">
 					<select name="tel1">
 					<option value="010">010</option>
 					<option value="011">011</option>
-					<option value="019">019</option>
+					<option value="019" selected>019</option>
 					</select>
+				</c:if>
 					-
-					<input type="tel" name="tel2" maxlength="4" style="width:50px;"/>
+					<input type="tel" name="tel2" maxlength="4" style="width:50px;" value="${member.tel2 }"/>
 					-
-					<input type="tel" name="tel3" maxlength="4" style="width:50px;"/>
+					<input type="tel" name="tel3" maxlength="4" style="width:50px;" value="${member.tel3 }"/>
 				</td>
 			</tr>
 			<tr>
 				<td align="center">이메일</td>
 				<td>
-					<input type="text" name="email1"/> @ 
-					<input type="text" name="email2" list="email2" placeholder="직접입력"/>
+					<input type="text" name="email1" value="${member.email1 }"/> @ 
+					<input type="text" name="email2" list="email2" value="${member.email2 }"/>
 					<datalist id=email2>
 						<option value="gmail.com">gmail.com</option>
 						<option value="naver.com">naver.com</option>
@@ -94,17 +106,17 @@ form[name="writeForm"] div{
 			<tr>
 				<td width="100" align="center">주소</td>
 				<td>
-					<input type="text" name="zipcode" id="zipcode" readonly style="margin-bottom:5px;"/>
-					<input type="button" value="우편번호검색" onclick="checkPost()"/><br>
-					<input type="text" id="addr1" name="addr1" readonly placeholder="주소" style="width:330px; margin-bottom:5px;"/><br>
-					<input type="text" id="addr2" name="addr2" placeholder="상세주소" style="width:330px;"/>
+					<input type="text" name="zipcode" id="zipcode" value="${member.zipcode }"readonly style="margin-bottom:5px;"/>
+					<input type="button" value="우편번호검색" onclick="checkPost()" /><br>
+					<input type="text" id="addr1" name="addr1" value="${member.addr1 }" readonly placeholder="주소" style="width:330px; margin-bottom:5px;"/><br>
+					<input type="text" id="addr2" name="addr2" value="${member.addr2 }" placeholder="상세주소" style="width:330px;"/>
 					
 				</td>
 			</tr>
 			<tr>
 				<td colspan="2" align="center">
-					<input type="button" value="회원가입" id="writeBtn"/>
-					<input type="reset" value="다시작성">
+					<input type="button" value="수정" id="updateBtn"/>
+					<input type="reset" value="되돌리기">
 				</td>
 			</tr>
 			
@@ -117,6 +129,6 @@ form[name="writeForm"] div{
 	<!-- 우편 번호 -->
 	<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script src="../js/post.js"></script>
-	
+
 </body>
 </html>

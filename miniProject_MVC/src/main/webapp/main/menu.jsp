@@ -37,7 +37,7 @@
 
 </style>
 <ul class="mainnav">
-	<c:if test="${sessionScope.memId != null }">
+	<c:if test="${sessionScope.member != null }">
 	<li><a href="">글쓰기</a></li><br>
 	</c:if>
 	<li><a href="">목록</a></li>

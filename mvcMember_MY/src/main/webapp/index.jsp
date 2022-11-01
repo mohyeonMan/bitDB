@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%-- <%@ page session="false" %> --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,16 +13,15 @@
 <hr>
 <h5>
 <br>
- <% if(session.getAttribute("memName") != null){ %>
-	<a href="http://localhost:8080/miniProject_JSP/member/logout.jsp">로그아웃</a><br>
-	<a href="http://localhost:8080/miniProject_JSP/board/boardWriteForm.jsp">글쓰기</a><br>
-	<a href="http://localhost:8080/miniProject_JSP/board/boardList.jsp?pg=1">목록</a><br>
-<% } %>
-<% if(session.getAttribute("memName") == null || !request.isRequestedSessionIdValid()){ %>
-	<a href="http://localhost:8080/miniProject_JSP/member/writeForm.jsp">회원가입</a><br>
-	<a href="http://localhost:8080/miniProject_JSP/member/loginForm.jsp">로그인</a><br>
-	<a href="http://localhost:8080/miniProject_JSP/board/boardList.jsp?pg=1">목록</a><br>
-<% } %> 
+<c:if test="${sessionScope.memName != null }">
+	<a href="/mvcMember_MY/member/logout.do">로그아웃</a><br>
+	<a href="/mvcMember_MY/board/boardWriteForm.do">글쓰기</a><br>
+</c:if>
+<c:if test="${sessionScope.memName == null }">
+	<a href="/mvcMember_MY/member/writeForm.do">회원가입</a><br>
+	<a href="/mvcMember_MY/member/loginForm.do">로그인</a><br>
+</c:if>
+<a href="/mvcMember_MY/board/boardList.do">목록</a><br>
 </h5>
 <br>
 </body>

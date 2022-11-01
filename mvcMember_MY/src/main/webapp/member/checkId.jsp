@@ -15,7 +15,7 @@ boolean exist = memberDAO.check(id);
 <title>Insert title here</title>
 </head>
 <body>
-	<form method="" action="checkId.jsp"><!-- 재귀적 -->
+	<form method="" action="checkId.do"><!-- 재귀적 -->
 		
 		<%if (exist) {%>
 			<%=id%>는 사용 불가능합니다.<br> 

@@ -68,10 +68,11 @@ body {
 <div id="container">
 
 	<div id="nav">
+	<!-- nav 로그인, 회원가입 -->
 	<jsp:include page="./main/nav.jsp"></jsp:include>
 	</div>
 	<div id="section">
-		<c:if test="${empty display}"> <!-- display == null 불가능. 값을 아예 안가진다. -->>
+		<c:if test="${empty display}"> <!-- display == null 불가능. 값을 아예 안가진다. -->
 		<h1>
 			어서오세요<br>
 			<img src="/miniProject_MVC/img/cww.jpg">
