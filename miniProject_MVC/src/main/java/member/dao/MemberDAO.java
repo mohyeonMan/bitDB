@@ -60,4 +60,12 @@ public class MemberDAO {
 		sqlSession.close();
 		return exist;
 	}
+
+
+	public void memberUpdate(MemberDTO memberDTO) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		sqlSession.update("memberSQL.memberUpdate",memberDTO);
+		sqlSession.commit();
+		sqlSession.close();
+	}
 }

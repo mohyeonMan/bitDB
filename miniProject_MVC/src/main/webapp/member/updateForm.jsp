@@ -34,13 +34,13 @@ form[name="updateForm"] div{
 				<td width="100" align="center">아이디</td>
 				<td>
 					<input type="text" name="id" id="id" value="${member.id }" readonly/>
-					<div id="idDiv"></div>
 				</td>
 			</tr>
 			<tr>
 				<td width="100" align="center">비밀번호</td>
 				<td>
-					<input type="password" name="pwd" id="pwd"/>
+					<input type="password" name="pwd" id="pwd" value="${member.pwd }"/>
+					<input type="hidden" id="checkPwd" value="${member.pwd }"/>
 					<div id="pwdDiv"></div>
 				</td>
 			</tr>
@@ -54,7 +54,10 @@ form[name="updateForm"] div{
 			<tr>
 				<td width="100" align="center">성별</td>
 				<td>
-				
+				<c:if test="${member.gender =='0' }">
+				<input type="radio" name="gender"  value="0" checked/>남
+					<input type="radio" name="gender"  value="1"/>여
+				</c:if>
 				<c:if test="${member.gender =='1' }">
 				<input type="radio" name="gender"  value="0" />남
 					<input type="radio" name="gender"  value="1" checked/>여
@@ -64,6 +67,13 @@ form[name="updateForm"] div{
 			<tr>
 				<td width="100" align="center">핸드폰</td>
 				<td>
+				<c:if test="${member.tel1 == '010'}">
+					<select name="tel1">
+					<option value="010" selected>010</option>
+					<option value="011">011</option>
+					<option value="019">019</option>
+					</select>
+				</c:if>
 				<c:if test="${member.tel1 == '011'}">
 					<select name="tel1">
 					<option value="010">010</option>
@@ -94,19 +104,12 @@ form[name="updateForm"] div{
 						<option value="naver.com">naver.com</option>
 						<option value="daum.com">daum.com</option>
 					</datalist>
-					
-<!-- 					<select id="email3" name="email3" onchange="change()">
-						<option value="">직접입력</option>
-						<option value="gmail.com">gmail.com</option>
-						<option value="naver.com">naver.com</option>
-						<option value="daum.com">daum.com</option>
-					</select> -->
 				</td>
 			</tr>
 			<tr>
 				<td width="100" align="center">주소</td>
 				<td>
-					<input type="text" name="zipcode" id="zipcode" value="${member.zipcode }"readonly style="margin-bottom:5px;"/>
+					<input type="text" name="zipcode" id="zipcode" value="${member.zipcode }" readonly style="margin-bottom:5px;"/>
 					<input type="button" value="우편번호검색" onclick="checkPost()" /><br>
 					<input type="text" id="addr1" name="addr1" value="${member.addr1 }" readonly placeholder="주소" style="width:330px; margin-bottom:5px;"/><br>
 					<input type="text" id="addr2" name="addr2" value="${member.addr2 }" placeholder="상세주소" style="width:330px;"/>

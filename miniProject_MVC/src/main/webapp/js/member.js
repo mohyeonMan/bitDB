@@ -1,3 +1,38 @@
+$('#updateBtn').click(function(){
+	$('#nameDiv').empty();
+	$('#pwdDiv').empty();
+	$('#repwdDiv').empty();
+	
+	if($('#name').val()==''){
+		$('#nameDiv').text("이름을 입력하세요");
+		$('#name').focus();
+	}else if($('#pwd').val()==''){
+		$('#pwdDiv').text("비밀번호를 입력하세요");
+		$('#pwd').focus();
+	}else if($('#pwd').val()==$('#checkPwd').val()){
+		$('#pwdDiv').text("이전과 같은 비밀번호입니다.");
+		$('#pwd').focus();	
+	}else if($('#repwd').val()==''){
+		$('#repwdDiv').text("비밀번호 재확인을 입력하세요");
+		$('#repwd').focus();
+	}else if($('#pwd').val()!=$('#repwd').val()){
+		$('#repwdDiv').text("비밀번호가 일치하지 않습니다");
+		$('#repwd').focus();
+	}else{
+		$.ajax({
+			url : 'http://localhost:8080/miniProject_MVC/member/update.do',
+			type : 'post',
+			data : $('#updateForm').serialize(), // 넘어갈 데이터들을 문자열로 만들어준다.
+			success:function(){
+					alert("회원정보가 수정되었습니다.");
+			location.href='/miniProject_MVC/index.jsp';				
+			},
+			error:function(err){
+				console.log(err);
+			}
+		});		
+	}
+});
 
 $('#writeBtn').click(function(){
 	$('#nameDiv').empty();
@@ -35,9 +70,7 @@ $('#writeBtn').click(function(){
 			error:function(err){
 				console.log(err);
 			}
-		});
-		
-		
+		});		
 	}
 });
 	
@@ -71,5 +104,3 @@ $('#writeForm #id').focusout(function(){
 		});//$.ajax
 	}
 });
-
-$('#updateBtn').click
