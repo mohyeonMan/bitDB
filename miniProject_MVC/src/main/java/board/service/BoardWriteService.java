@@ -32,6 +32,13 @@ public class BoardWriteService implements CommandProcess {
 		BoardDAO boardDAO = BoardDAO.getInstance();
 		boardDAO.write(boardDTO);
 		
+		System.out.println(id);
+		System.out.println(name);
+		System.out.println(email);
+		System.out.println(subject);
+		System.out.println(content);
+
+		
 		return "/board/boardWrite.jsp";
 	}
 

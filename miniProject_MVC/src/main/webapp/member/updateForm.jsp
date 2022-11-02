@@ -97,7 +97,6 @@ form[name="updateForm"] div{
 			<tr>
 				<td colspan="2" align="center">
 					<input type="button" value="수정" id="updateBtn"/>
-					<input type="reset" value="되돌리기">
 				</td>
 			</tr>
 			

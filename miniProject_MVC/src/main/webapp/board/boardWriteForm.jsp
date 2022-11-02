@@ -38,7 +38,7 @@
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
-				<input type="button" value="글작성" id="boardWrite">
+				<input type="button" value="글작성" id="boardWriteBtn">
 				<input type="reset" value="다시작성">
 			</td>
 			
@@ -48,22 +48,6 @@
 </form>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.1.min.js"></script>
 <script type="text/javascript" src="../js/board.js"></script>
-<script type="text/javascript">
-	/*function boardWriteCheck() {
-		document.getElementById("subjectDiv").innerText="";
-		document.getElementById("contentDiv").innerText="";
-		
-		if(document.getElementById("subject").value==""){
-			document.getElementById("subjectDiv").innerText="제목을 입력해주세요.";
-			document.boardWriteForm.subject.focus();
-		}
-		else if(document.getElementById("content").value==""){
-			document.getElementById("contentDiv").innerText="내용을 입력해주세요.";
-			document.boardWriteForm.content.focus();
-		}
-		else document.boardWriteForm.submit();
-		
-	}*/
-</script>
+
 </body>
 </html>

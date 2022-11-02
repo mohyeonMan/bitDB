@@ -1,9 +1,8 @@
 
-$('#boardWrite').click(function(){
+$('#boardWriteBtn').click(function(){
 	$('#subjectDiv').empty();
 	$('#contentDiv').empty();
 
-	
 	if($('#subject').val()==''){
 		$('#subjectDiv').text('제목을 입력해주세요');
 		$('#subject').focus();
@@ -17,11 +16,11 @@ $('#boardWrite').click(function(){
 			data : $('#boardWriteForm').serialize(),
 			success:function(){
 				alert("작성 완료 되었습니다.");
-				location.href='/miniProject_MVC/index.jsp';			
+				location.href='/miniProject_MVC/index.jsp';
 			},
-			error:function(err){
-				console.log(err);
+			error:function(){
+				alert("no!");
 			}
-		})
+		});
 	}
 });
