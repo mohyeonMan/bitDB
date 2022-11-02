@@ -25,12 +25,12 @@ $('#updateBtn').click(function(){
 			data : $('#updateForm').serialize(), // 넘어갈 데이터들을 문자열로 만들어준다.
 			success:function(){
 					alert("회원정보가 수정되었습니다.");
-			location.href='/miniProject_MVC/index.jsp';				
+				location.href='/miniProject_MVC/index.jsp';				
 			},
 			error:function(err){
 				console.log(err);
 			}
-		});		
+		});
 	}
 });
 
@@ -104,3 +104,39 @@ $('#writeForm #id').focusout(function(){
 		});//$.ajax
 	}
 });
+
+$('#loginBtn').click(function() {
+			$('#idDiv').empty(); //$('#idDiv').text('');
+			$('#pwdDiv').empty();
+
+			if ($('#id').val() == '') {
+				$('#idDiv').text('아이디를 입력하세요');
+				$('#id').focus();
+			} else if ($('#pwd').val() == '') {
+				$('#pwdDiv').text('비밀번호를 입력하세요');
+				$('#pwd').focus();
+			} else {
+				$.ajax({
+					url : '/miniProject_MVC/member/login.do',
+					type : 'post',
+					data : 'id=' + $('#id').val() + '&pwd=' + $('#pwd').val(),
+					//	json 형식
+					//	data: { 'id':$('#id').val(), 'pwd':$('#pwd').val() }
+					dataType : 'text',
+					success : function(data) {
+						data = data.trim();
+
+						if (data == 'ok') {
+							location.href='../index.jsp';
+						} else if (data == 'fail') {
+							$('#loginResult').text('아이디 또는 비밀번호가 맞지 않습니다.');
+							$('#loginResult').css('color','blue')
+						}
+					},
+					error : function(err) {
+						//alert(err)
+						console.log(err); //콘솔창에 뜨게해라
+					}
+				})
+			}
+		});

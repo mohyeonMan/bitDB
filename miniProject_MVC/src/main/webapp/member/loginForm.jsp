@@ -52,42 +52,6 @@ Div {
 	</form>
 	<script type="text/javascript"
 		src="http://code.jquery.com/jquery-3.6.1.min.js"></script>
-	<script type="text/javascript">
-		$('#loginBtn').click(function() {
-			$('#idDiv').empty(); //$('#idDiv').text('');
-			$('#pwdDiv').empty();
-
-			if ($('#id').val() == '') {
-				$('#idDiv').text('아이디를 입력하세요');
-				$('#id').focus();
-			} else if ($('#pwd').val() == '') {
-				$('#pwdDiv').text('비밀번호를 입력하세요');
-				$('#pwd').focus();
-			} else {
-				$.ajax({
-					url : '/miniProject_MVC/member/login.do',
-					type : 'post',
-					data : 'id=' + $('#id').val() + '&pwd=' + $('#pwd').val(),
-					//	json 형식
-					//	data: { 'id':$('#id').val(), 'pwd':$('#pwd').val() }
-					dataType : 'text',
-					success : function(data) {
-						data = data.trim();
-
-						if (data == 'ok') {
-							location.href='../index.jsp';
-						} else if (data == 'fail') {
-							$('#loginResult').text('아이디 또는 비밀번호가 맞지 않습니다.');
-							$('#loginResult').css('color','blue')
-						}
-					},
-					error : function(err) {
-						//alert(err)
-						console.log(err); //콘솔창에 뜨게해라
-					}
-				})
-			}
-		});
-	</script>
+	<script src="../js/member.js"></script>
 </body>
 </html>

@@ -38,10 +38,10 @@ public class LoginService implements CommandProcess {
 		if(memberDTO != null){
 			HttpSession session = request.getSession(); // 세션 생성
 			session.setAttribute("member", memberDTO);
-			 /* session.setAttribute("memId", memberDTO.getId());
-			 * session.setAttribute("memName", memberDTO.getName());
-			 * session.setAttribute("memEmail", memberDTO.getEmail1() + "@" +
-			 * memberDTO.getEmail2());*/
+			session.setAttribute("memId", memberDTO.getId());
+		/*	session.setAttribute("memName", memberDTO.getName());
+			session.setAttribute("memEmail", 
+					 memberDTO.getEmail1() + "@" + memberDTO.getEmail2());*/
 			return "loginOk.jsp";
 		}else {
 			return "loginFail.jsp";

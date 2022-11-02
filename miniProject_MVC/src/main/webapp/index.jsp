@@ -8,22 +8,26 @@
 <meta charset="UTF-8">
 <title>Main</title>
 <style type="text/css">
+html{
+	margin:0 auto;
+	paddin:0;
+	width:1000px;
+}
 body {
    margin: 0;
    padding: 0;
    height: 100%;
-   width: 0 auto;
+   border:1px;
 }
 
 #header {
-   width: 1700px;
    height: 10%;
    text-align: center;
 }
 
 #container {
    margin: auto;
-   width: 1700px;
+   width: 1000px;
    height: 500px;
 }
 
@@ -36,7 +40,6 @@ body {
 
 #nav {
    margin-left: 10px;
-   /* width: 400px; */
    width: 25%;
    height: 100%;
    float: left;
@@ -55,39 +58,38 @@ body {
 </style>
 </head>
 <body>
-
-<div id="header">
-	<h1>
-	<img src="/miniProject_MVC/img/cww.jpg" width="70" height="90" style="cursor: pointer;"
-	 onclick ="location.href='/miniProject_MVC/index.jsp'">MVC를 이용한 프로젝트
-	</h1>  <!-- 주소가 바뀌기때문에 절대주소 필요 -->
-	<hr>
-	<jsp:include page="./main/menu.jsp"></jsp:include>
-</div>
-
-<div id="container">
-
-	<div id="nav">
-	<!-- nav 로그인, 회원가입 -->
-	<jsp:include page="./main/nav.jsp"></jsp:include>
-	</div>
-	<div id="section">
-		<c:if test="${empty display}"> <!-- display == null 불가능. 값을 아예 안가진다. -->
+	<div id="header">
 		<h1>
-			어서오세요<br>
-			<img src="/miniProject_MVC/img/cww.jpg">
-		</h1>
-		</c:if>
-		<c:if test="${not empty display}">
-		<jsp:include page="${display }"></jsp:include>
-		</c:if>
+		<img src="/miniProject_MVC/img/cww.jpg" width="70" height="90" style="cursor: pointer;"
+		 onclick ="location.href='/miniProject_MVC/index.jsp'">MVC를 이용한 프로젝트
+		</h1>  <!-- 주소가 바뀌기때문에 절대주소 필요 -->
+		
+		<jsp:include page="./main/menu.jsp"></jsp:include>
+	</div>
+	
+	<div id="container">
+	
+		<div id="nav">
+		<!-- nav 로그인, 회원가입 -->
+		<jsp:include page="./main/nav.jsp"></jsp:include>
+		</div>
+		<div id="section">
+			<c:if test="${empty display}"> <!-- display == null 불가능. 값을 아예 안가진다. -->
+			<h1>
+				어서오세요<br>
+				<img src="/miniProject_MVC/img/cww.jpg">
+			</h1>
+			</c:if>
+			<c:if test="${not empty display}">
+			<jsp:include page="${display }"></jsp:include>
+			</c:if>
+			
+		</div>
 		
 	</div>
 	
-</div>
-
-<div id="footer">
-</div>
+	<div id="footer">
+	</div>
 
 </body>
 </html>

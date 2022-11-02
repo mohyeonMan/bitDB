@@ -38,7 +38,7 @@
 </style>
 <ul class="mainnav">
 	<c:if test="${sessionScope.member != null }">
-	<li><a href="">글쓰기</a></li><br>
+	<li><a href="/miniProject_MVC/board/boardWriteForm.do">글쓰기</a></li>
 	</c:if>
 	<li><a href="">목록</a></li>
 </ul>
