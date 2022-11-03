@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<script type="text/javascript">
+function insertQuestion(num){
+	alert(num);
+	
+	var str = prompt("사칙연산의 수식을 입력하세요. (예: 100+50)","싫음말고");
+	var answer = eval(str);
+	var result = "<font color='red'>"+str+"="+answer+"</font>";
+	
+	document.getElementById("question").innerHTML=result;
+	
+	
+}
+</script>
+
+</head>
+<body onload="insertQuestion(222)"> <!-- body를 다 불러오고 실행한다. 111을 덮어버린다.-->
+
+<h1 id="question"></h1>
+
+<script type="text/javascript">
+insertQuestion(111);
+</script>
+
+<!-- <h1 id="question"></h1> 스크립트에서 question을 찾지 못한다.--> 
+</body>
+</html>
