@@ -3,7 +3,8 @@ package board.bean;
 import lombok.Getter;
 import lombok.Setter;
 
-@Setter@Getter
+@Getter
+@Setter
 public class BoardDTO {
 	private int seq;
     private String id;

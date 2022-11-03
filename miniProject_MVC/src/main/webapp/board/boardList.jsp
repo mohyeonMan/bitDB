@@ -47,39 +47,27 @@
 		float: left;
 		margin-top: 5px;
 	}
+	#fc{
+		align:center;
+	}
 </style>
 </head>
 <body>
+<input type="text" id="pg" value="${pg }">
 	<h1 align="left">글목록</h1>
 	<hr>
 	
-	
-	
-<c:if test="${requestScope.list != 'null'}">
-	
-
-		<table border="1" cellpadding="5" frame="hsides" rules="rows">
-			
-			<tr>
-				<td width = "100px" align="center">글번호</td>
-				<td width = "350px" align="center">제목</td>
-				<td width = "100px" align="center">작성자</td>
-				<td width = "80px" align="center">조회수</td>
-				<td width = "120px" align="center">작성일</td>
-			</tr>
-		<c:forEach var="boardDTO" items="${requestScope.list}">
+		<table id="boardListTable" border="1" cellpadding="5" frame="hsides" rules="rows">
+				<tr>
+					<td width = "100px" align="center">글번호</td>
+					<td width = "350px" align="center">제목</td>
+					<td width = "100px" align="center">작성자</td>
+					<td width = "120px" align="center">작성일</td>
+					<td width = "80px" align="center">조회수</td>
+				</tr>
+				
+		<!-- 동적처리 -->
 		
-		<tr>
-				<td align="center">${boardDTO.seq}</td>
-				<td ><a class="subjectA" onclick="isLogin('${requestScope.id}',${boardDTO.seq},${requestScope.pg})">${boardDTO.subject}</a></td>
-				<td align="center">${boardDTO.id}</td>
-				<td align="center">${boardDTO.hit} </td>
-				<td align="center">${boardDTO.logtime} </td>
-			</tr>
-		</c:forEach>
-		
-
-</c:if>
 		</table>
 		
 		<input type="button" value="메인페이지" id="mainpage" onclick="location.href='../index.jsp'">
@@ -103,5 +91,7 @@
 		}  
 		
 	</script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.1.min.js"></script>
+	<script type="text/javascript" src="../js/boardList.js"></script>
 </body>
 </html>
