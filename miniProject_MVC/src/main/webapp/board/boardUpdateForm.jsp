@@ -37,7 +37,7 @@
 				<div id="contentDiv"></div>
 				<textarea cols="30" rows="15" name="content" id="content"></textarea>
 			</td>
-		</tr>
+		</tr>z
 		<tr>
 			<td colspan="2" align="center">
 				<input type="button" value="글작성" id="boardUpdateBtn">
