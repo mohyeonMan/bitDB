@@ -53,7 +53,9 @@
 </style>
 </head>
 <body>
-<input type="text" id="pg" value="${pg }">
+<input type="hidden" id="pg" value="${pg }">
+<input type="hidden" id="memId" value="${memId}">
+
 	<h1 align="left">글목록</h1>
 	<hr>
 	
@@ -71,7 +73,7 @@
 		</table>
 		
 		<input type="button" value="메인페이지" id="mainpage" onclick="location.href='../index.jsp'">
-		 <div id ="pagingDiv">${requestScope.paging}</div>
+		 <div id ="pagingDiv"></div>
 		
 	<script type="text/javascript">
 		function boardPaging(pg) {location.href="boardList.do?pg=" + pg;}

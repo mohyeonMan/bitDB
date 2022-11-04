@@ -15,11 +15,11 @@ import board.bean.BoardDTO;
 public class BoardDAO {
 	private SqlSessionFactory sqlSessionFactory;
 	private static BoardDAO boardDAO = new BoardDAO();
-	
+
 	public static BoardDAO getInstance() {
 		return boardDAO;
 	}
-	
+
 	public BoardDAO() {
 		try {
 			Reader reader = Resources.getResourceAsReader("member-config.xml");
@@ -28,28 +28,25 @@ public class BoardDAO {
 			e.printStackTrace();
 		}
 	}
-	
-	
+
 	public void write(BoardDTO boardDTO) {
-		
+
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		sqlSession.insert("boardSQL.write",boardDTO);
+		sqlSession.insert("boardSQL.write", boardDTO);
 
 		sqlSession.commit();
 		sqlSession.close();
-		
-		
-		
+
 	}
-	
+
 	public int getTotalA() {
-		int totalA=0;
+		int totalA = 0;
 		SqlSession sqlSession = sqlSessionFactory.openSession();
 		List<BoardDTO> list = sqlSession.selectList("boardSQL.getTotalA");
 		totalA = list.size();
 		return totalA;
 	}
-	
+
 	public List<BoardDTO> boardList(Map<String, Integer> map) {
 		List<BoardDTO> list = null;
 		SqlSession sqlSession = sqlSessionFactory.openSession();
@@ -57,22 +54,43 @@ public class BoardDAO {
 		sqlSession.close();
 		return list;
 	}
-	
+
 	public void boardcount(int seq) {
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		sqlSession.update("boardSQL.boardcount",seq);
+		sqlSession.update("boardSQL.boardcount", seq);
 		sqlSession.commit();
 		sqlSession.close();
-		
+
 	}
-	
+
 	public BoardDTO boardListOne(int seq) {
 		BoardDTO boardDTO = null;
 		SqlSession sqlSession = sqlSessionFactory.openSession();
-		boardDTO = sqlSession.selectOne("boardSQL.boardListOne",seq);
+		boardDTO = sqlSession.selectOne("boardSQL.boardListOne", seq);
 		sqlSession.close();
-		
+
 		return boardDTO;
 	}
-	
+
+	public void hitPlus(int seq) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		sqlSession.update("boardSQL.hitPlus",seq);
+		sqlSession.commit();
+		sqlSession.close();
+	}
+
+	public void boardUpdate(BoardDTO boardDTO) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		sqlSession.update("boardSQL.boardUpdate",boardDTO);
+		sqlSession.commit();
+		sqlSession.close();
+	}
+
+	public void boardDelete(int seq) {
+		SqlSession sqlSession = sqlSessionFactory.openSession();
+		sqlSession.delete("boardSQL.boardDelete",seq);
+		sqlSession.commit();
+		sqlSession.close();
+	}
+
 }

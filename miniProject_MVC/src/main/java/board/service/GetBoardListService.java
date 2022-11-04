@@ -69,13 +69,13 @@ public class GetBoardListService implements CommandProcess{
 		boardPaging.setTotalA(totalA);
 		boardPaging.makePagingHTML();
 		
-		HttpSession session = request.getSession();
-		String id = (String)session.getAttribute("memId");
+		json.put("pagingHTML",boardPaging.getPagingHTML()+""); //StringBuffer -> String으로 변환
 		
-		request.setAttribute("id", id);
+		HttpSession session = request.getSession();
+		String memId = (String)session.getAttribute("memId");
+		request.setAttribute("memId", memId);
 		request.setAttribute("pg", pg);
 		request.setAttribute("json", json);
-		System.out.println(json);
 		
 		return "/board/getBoardList.jsp";
 	}

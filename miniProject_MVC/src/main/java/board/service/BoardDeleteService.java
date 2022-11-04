@@ -5,15 +5,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.control.CommandProcess;
 
-public class BoardViewService implements CommandProcess {
+import board.dao.BoardDAO;
+
+public class BoardDeleteService implements CommandProcess {
 
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
-		request.setAttribute("seq",request.getParameter("seq"));
-		request.setAttribute("pg",request.getParameter("pg"));
-
-		request.setAttribute("display","/board/boardView.jsp");
-		return "/index.jsp";
+		int seq = Integer.parseInt(request.getParameter("seq"));
+		BoardDAO boardDAO = BoardDAO.getInstance();
+		boardDAO.boardDelete(seq);
+		
+		return "/board/boardDelete.jsp";
 	}
 
 }

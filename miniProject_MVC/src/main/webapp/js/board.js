@@ -16,7 +16,7 @@ $('#boardWriteBtn').click(function(){
 			data : $('#boardWriteForm').serialize(),
 			success:function(){
 				alert("작성 완료 되었습니다.");
-				location.href='/miniProject_MVC/index.jsp';
+				location.href='/miniProject_MVC/board/boardList.do?pg=1';
 			},
 			error:function(){
 				alert("no!");
