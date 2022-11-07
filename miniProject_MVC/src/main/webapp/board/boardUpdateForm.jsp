@@ -20,8 +20,8 @@
 <body>
 <h3>게시글 수정</h3>
 <hr>
-<input type="text" id="seq" value="${seq }">
-<input type="text" id="pg" value="${pg }">
+<input type="hidden" id="seq" value="${seq }">
+<input type="hidden" id="pg" value="${pg }">
 <form id="boardUpdateForm" name="boardUpdateForm">
 	<table border="1">
 		<tr>
@@ -37,10 +37,11 @@
 				<div id="contentDiv"></div>
 				<textarea cols="30" rows="15" name="content" id="content"></textarea>
 			</td>
-		</tr>z
+		</tr>
 		<tr>
 			<td colspan="2" align="center">
 				<input type="button" value="글작성" id="boardUpdateBtn">
+				<input type="button" value="다시 작성" onclick="location.reload()">
 			</td>
 		</tr>
 	

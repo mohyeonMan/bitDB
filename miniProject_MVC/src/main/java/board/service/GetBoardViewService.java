@@ -36,8 +36,6 @@ public class GetBoardViewService implements CommandProcess{
 		json.put("logtime", boardDTO.getLogtime());
 		
 		request.setAttribute("json", json);
-		System.out.println(json);
-
 		
 		return "/board/getBoardView.jsp";
 	}

@@ -26,7 +26,7 @@
 			where seq=#{seq}
 	</update>
 	<delete id="boardDelete" parameterType="int">
-	delete from board where seq = #{seq}
+	delete board where seq = #{seq}
 	</delete>
 	
 

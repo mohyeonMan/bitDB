@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+//배열생성
+//var array = ["박지훈","자바스크립트","학생"];
+var array1 = new Array("박지훈","자바스크립트","학생"); // 내장객체 사용
+document.write(array1[0]+"<br>");
+document.write(array1[1]+"<br>");
+document.write(array1[2]+"<br>");
+document.write("<hr>");
+
+array1[0] ="Park";
+array1[1] ="JavaScript";
+array1[2] ="Student";
+document.write(array1[0]+"<br>");
+document.write(array1[1]+"<br>");
+document.write(array1[2]+"<br>");
+document.write("<hr>");
+
+//빈 배열 생성
+var array2 = [];
+//var array2 = new Array();
+
+for (var i = 0;i<10;i++){
+	array2[i] = i+1;	
+}
+
+document.write("배열의 길이 : " + array2.length + "<br>");
+
+for (var i = 0;i<array2.length;i++){
+	document.write(array2[i]+" ");
+}
+
+</script>
+
+</body>
+</html>
