@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title><style type="text/css">
+	@import url("../css/event.css");
+</style>
+
+</head>
+<body>
+
+<h1>Hover 이벤트 확인하기</h1>
+<div id="input">
+	Here
+</div>
+<h2>결과</h2>
+<div id="result"></div>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script type="text/javascript">
+$('#input').hover(function(){ //hover(enter,leave)
+	$('#result').html("Mouse Enter Event (onMouseOver)");
+},function(){
+	$('#result').html("Mouse Leave Event (onMouseOut)");
+
+});
+</script>
+
+</body>
+</html>
+

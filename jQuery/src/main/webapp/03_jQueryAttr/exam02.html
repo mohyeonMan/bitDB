@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1>속성</h1>
+	<p>클릭하세요.</p>
+	<img src="../img/cww.jpg">
+
+	<script type="text/javascript"
+		src="http://code.jquery.com/jquery-3.6.1.min.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			var index = 1;
+			
+			$('img').click(function() {
+				index = (index%2)+1; //1~4순서대로
+				$(this).attr('src','../img/'+index+'.jpg');
+			});
+		});
+	</script>
+</body>
+</html>
