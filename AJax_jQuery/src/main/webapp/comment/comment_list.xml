@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?> <!-- 앞에 공백이 있으면 안됩니다. -->
+<comment>
+	<result>true</result>
+	<message></message>
+	<total_count>24</total_count>
+	<item>
+		<num>1</num>
+		<writer>박지훈</writer>
+		<content>Ajax로 구현하는 예제입니다다다.</content>
+		<datetime><![CDATA[2022-11-18 11:07:00]]> </datetime>
+	</item>
+	<item>
+		<num>2</num>
+		<writer>박지훈훈</writer>
+		<content>jQuery와 Ajax를 구현하면 매우 안쉽습니다다다.</content>
+		<datetime>2022-11-18 11:08:00</datetime>
+	</item>
+	<item>
+		<num>3</num>
+		<writer>박지훈훈훈</writer>
+		<content>이몸, "등장".</content>
+		<datetime>2022-11-18 11:09:00</datetime>
+	</item>
+	<item>
+		<num>4</num>
+		<writer>박지훈훈훈훈</writer>
+		<content>나, "강림".</content>
+		<datetime>2022-11-18 11:10:00</datetime>
+	</item>
+	
+</comment>
+
+<!-- 
+CDATA Section
+- <![CDATA[.....]]> 
+- CDATA Section 영역 안에서는 특수문자의 사용이 자유롭다.
+- 한글을 포함한 문자열 데이터에 사용할 수 있다.
+ -->
