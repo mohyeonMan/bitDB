@@ -1,0 +1,9 @@
+{
+	"school": {
+		"subject":{
+			"title": "Javascript+jQuery+Ajax",
+			"time" : "매주 월화수목금 9시30분~18시" ,
+			"teacher" : "박지훈"
+		}	
+	}	 
+}

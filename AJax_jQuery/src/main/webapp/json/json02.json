@@ -1,0 +1,17 @@
+{
+	"school": {
+		"subject":[{
+			"title": "Javascript+jQuery+Ajax",
+			"time" : "매주 월화수목금 9시30분~18시" ,
+			"teacher" : "박지훈"
+		},{
+			"title": "HTML5+CSS3 기반의 반응형 웹",
+			"time" : "매주 월화수목금 9시30분~18시" ,
+			"teacher" : "바보"
+		},{
+			"title": "Java 입문에서 활용까지",
+			"time" : "매주 월화수목금 9시30분~18시" ,
+			"teacher" : "멍청이"
+		}]
+	}	 
+}
